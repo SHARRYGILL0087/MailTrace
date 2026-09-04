@@ -11,6 +11,7 @@ export const Navbar: React.FC = () => {
   const navItems = [
     { label: 'Dashboard', href: '/' },
     { label: 'Analyze Email', href: '/analyze' },
+    { label: 'Threat Graph', href: '/threat-graph' },
     { label: 'Investigations', href: '/investigations' },
     { label: 'Threat Intelligence', href: '/threat-intelligence' },
     { label: 'Reports', href: '/reports' },

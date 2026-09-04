@@ -37,7 +37,10 @@ export const Sidebar: React.FC = () => {
       <nav className="flex-1 space-y-1 mt-1">
         {navigationRoutes.map((route) => {
           const Icon = route.icon;
-          const isActive = pathname === route.href || (route.href !== '/' && pathname.startsWith(route.href));
+          const isActive = 
+            pathname === route.href || 
+            (route.href !== '/' && pathname.startsWith(route.href)) ||
+            (route.href === '/threat-graph' && pathname === '/graph');
           return (
             <Link
               key={route.label}
