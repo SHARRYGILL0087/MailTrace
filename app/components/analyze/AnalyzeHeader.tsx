@@ -22,7 +22,7 @@ export const AnalyzeHeader: React.FC = () => {
             Analyze Suspicious Email
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-2xl leading-relaxed">
-            Upload an email and let MailTrace AI detect threats, analyze technical evidence, and investigate its origin.
+            Upload an email and let Suraksha Shield detect threats, analyze technical evidence, and investigate its origin.
           </p>
         </div>
 

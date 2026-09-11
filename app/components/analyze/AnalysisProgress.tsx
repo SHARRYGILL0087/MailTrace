@@ -49,7 +49,7 @@ export const AnalysisProgress: React.FC<AnalysisProgressProps> = ({ onComplete }
         Analyzing Email
       </h2>
       <p className="mt-1 text-xs text-slate-600 max-w-md mx-auto">
-        MailTrace AI is investigating the message and its associated infrastructure.
+        Suraksha Shield is investigating the message and its associated infrastructure.
       </p>
 
       {/* Vertical Progress Timeline */}

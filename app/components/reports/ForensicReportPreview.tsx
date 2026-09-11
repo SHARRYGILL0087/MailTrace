@@ -175,7 +175,7 @@ export const ForensicReportPreview: React.FC<ForensicReportPreviewProps> = ({
           <div>
             <div className="flex items-center gap-2 text-slate-900 font-black tracking-tight text-xl">
               <ShieldCheck className="h-6 w-6 text-blue-600" />
-              <span>MailTrace AI — Forensic Email Intelligence</span>
+              <span>Suraksha Shield — Forensic Email Intelligence</span>
             </div>
             <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mt-1">
               Confidential Digital Forensics & Threat Assessment Report
@@ -804,7 +804,7 @@ export const ForensicReportPreview: React.FC<ForensicReportPreviewProps> = ({
 
         {/* Footer Notice */}
         <div className="border-t border-slate-200 pt-4 text-center text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-          MailTrace AI — Confidential Security Investigation • Report ID: {report.id}
+          Suraksha Shield — Confidential Security Investigation • Report ID: {report.id}
         </div>
       </div>
     </div>

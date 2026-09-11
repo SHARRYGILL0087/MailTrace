@@ -136,7 +136,7 @@ export const GeneralSettings: React.FC<Props> = ({ settings, onSave, onReset }) 
             Theme Preference
           </label>
           <p className="text-[11px] text-slate-400">
-            MailTrace AI SOC light workspace theme. (Theme is UI-ready).
+            Suraksha Shield SOC light workspace theme. (Theme is UI-ready).
           </p>
           <div className="flex flex-wrap gap-2.5">
             {(['Light', 'Dark', 'System'] as const).map((t) => (

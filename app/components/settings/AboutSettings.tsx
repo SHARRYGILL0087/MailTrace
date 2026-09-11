@@ -39,7 +39,7 @@ export const AboutSettings: React.FC = () => {
         <div>
           <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
             <Info className="h-4 w-4 text-emerald-600" />
-            <span>About MailTrace AI</span>
+            <span>About Suraksha Shield</span>
           </h2>
           <p className="text-xs text-slate-500 mt-0.5">
             System build details, architectural specifications, and platform telemetry
@@ -60,7 +60,7 @@ export const AboutSettings: React.FC = () => {
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h3 className="text-lg font-black text-slate-900 tracking-tight">MailTrace AI</h3>
+                <h3 className="text-lg font-black text-slate-900 tracking-tight">Suraksha Shield</h3>
                 <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-bold text-emerald-800">
                   SIH PS 26106
                 </span>
@@ -146,7 +146,7 @@ export const AboutSettings: React.FC = () => {
             <div className="flex items-center justify-between pb-3 border-b border-slate-100">
               <div className="flex items-center gap-2">
                 <BookOpen className="h-4 w-4 text-emerald-600" />
-                <h3 className="text-sm font-bold text-slate-900">MailTrace AI Documentation Reference</h3>
+                <h3 className="text-sm font-bold text-slate-900">Suraksha Shield Documentation Reference</h3>
               </div>
               <button
                 type="button"

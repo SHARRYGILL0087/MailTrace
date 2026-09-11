@@ -54,7 +54,7 @@ export const AnalysisCapabilities: React.FC = () => {
     <div className="rounded-3xl border border-slate-200/80 bg-white p-6 shadow-xs">
       <div className="mb-5">
         <h3 className="text-base font-bold text-slate-900">
-          What MailTrace AI analyzes
+          What Suraksha Shield analyzes
         </h3>
         <p className="text-xs text-slate-500 mt-0.5">
           Automated multi-vector threat inspection engine

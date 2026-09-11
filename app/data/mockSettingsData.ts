@@ -2,7 +2,7 @@ import { FullSettings, ThreatIntelIntegration, LoginActivityItem } from '@/app/t
 
 export const INITIAL_SETTINGS: FullSettings = {
   general: {
-    appName: 'MailTrace AI',
+    appName: 'Suraksha Shield',
     timezone: 'Asia/Kolkata (IST)',
     dateFormat: 'DD/MM/YYYY',
     theme: 'Light',

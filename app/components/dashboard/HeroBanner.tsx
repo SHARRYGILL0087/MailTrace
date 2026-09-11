@@ -16,7 +16,7 @@ export const HeroBanner: React.FC = () => {
             Detect. Trace. Investigate.
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 max-w-xl leading-relaxed">
-            MailTrace AI combines AI-powered threat detection, email header forensics, infrastructure intelligence, geolocation and threat correlation in one investigation platform.
+            Suraksha Shield combines AI-powered threat detection, email header forensics, infrastructure intelligence, geolocation and threat correlation in one investigation platform.
           </p>
           <div className="flex flex-wrap items-center gap-3 pt-1">
             <button className="flex items-center gap-2 rounded-2xl bg-blue-600 px-5 py-2.5 text-xs font-semibold text-white shadow-sm shadow-blue-500/20 hover:bg-blue-700 transition-all hover:scale-[1.01] active:scale-[0.99]">

@@ -27,7 +27,7 @@ export const Navbar: React.FC = () => {
             <ShieldCheck className="h-5 w-5" />
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="text-base font-bold tracking-tight text-slate-900">MailTrace</span>
+            <span className="text-base font-bold tracking-tight text-slate-900">Suraksha Shield</span>
             <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-bold text-emerald-700 border border-emerald-100">
               AI
             </span>
