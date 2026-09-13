@@ -33,13 +33,13 @@ export const HeaderRouteTimeline: React.FC<Props> = ({ routeNodes, onNodeClick }
             <div
               key={node.id}
               onClick={() => onNodeClick(node)}
-              className="group relative flex items-start gap-4 rounded-2xl border border-slate-100 bg-slate-50/70 p-4 hover:border-emerald-300 hover:bg-emerald-50/40 hover:shadow-xs transition-all cursor-pointer"
+              className="group relative flex items-start gap-4 rounded-2xl border border-slate-100 bg-slate-50/70 p-4 hover:border-blue-300 hover:bg-blue-50/40 hover:shadow-xs transition-all cursor-pointer"
             >
               {/* Timeline Connector Pin */}
-              <div className="absolute -left-6 top-5 flex h-6 w-6 items-center justify-center rounded-full bg-white border-2 border-slate-300 shadow-2xs group-hover:border-emerald-600 transition-colors">
+              <div className="absolute -left-6 top-5 flex h-6 w-6 items-center justify-center rounded-full bg-white border-2 border-slate-300 shadow-2xs group-hover:border-blue-600 transition-colors">
                 <span
                   className={`h-2.5 w-2.5 rounded-full ${
-                    node.isSuspicious ? 'bg-rose-500 animate-ping' : 'bg-emerald-600'
+                    node.isSuspicious ? 'bg-rose-500 animate-ping' : 'bg-blue-600'
                   }`}
                 />
               </div>
@@ -49,7 +49,7 @@ export const HeaderRouteTimeline: React.FC<Props> = ({ routeNodes, onNodeClick }
                 className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl ${
                   node.isSuspicious
                     ? 'bg-rose-100 text-rose-700 border border-rose-200'
-                    : 'bg-white text-emerald-600 border border-slate-200'
+                    : 'bg-white text-blue-600 border border-slate-200'
                 } shadow-xs group-hover:scale-105 transition-transform`}
               >
                 <Server className="h-5 w-5" />
@@ -59,7 +59,7 @@ export const HeaderRouteTimeline: React.FC<Props> = ({ routeNodes, onNodeClick }
               <div className="flex-1 min-w-0">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <div className="flex items-center gap-2">
-                    <h3 className="text-xs font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
+                    <h3 className="text-xs font-bold text-slate-900 group-hover:text-blue-700 transition-colors">
                       {node.name}
                     </h3>
                     <span className="text-base">{node.flag}</span>
@@ -89,7 +89,7 @@ export const HeaderRouteTimeline: React.FC<Props> = ({ routeNodes, onNodeClick }
               </div>
 
               {/* Click Drawer Hint */}
-              <div className="text-[11px] font-bold text-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity self-center">
+              <div className="text-[11px] font-bold text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity self-center">
                 Inspect →
               </div>
             </div>

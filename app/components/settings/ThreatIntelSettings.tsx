@@ -96,8 +96,8 @@ export const ThreatIntelSettings: React.FC<Props> = ({ integrations, onUpdateInt
     switch (status) {
       case 'Connected':
         return {
-          bg: 'bg-emerald-50 text-emerald-800 border-emerald-200',
-          dot: 'bg-emerald-500',
+          bg: 'bg-blue-50 text-blue-800 border-blue-200',
+          dot: 'bg-blue-500',
           label: 'Connected',
         };
       case 'Connection Error':
@@ -123,7 +123,7 @@ export const ThreatIntelSettings: React.FC<Props> = ({ integrations, onUpdateInt
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-slate-100">
         <div>
           <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
-            <BrainCircuit className="h-4 w-4 text-emerald-600" />
+            <BrainCircuit className="h-4 w-4 text-blue-600" />
             <span>Threat Intelligence</span>
           </h2>
           <p className="text-xs text-slate-500 mt-0.5">
@@ -195,7 +195,7 @@ export const ThreatIntelSettings: React.FC<Props> = ({ integrations, onUpdateInt
                       value={inputKeys[item.id] || ''}
                       onChange={(e) => setInputKeys((prev) => ({ ...prev, [item.id]: e.target.value }))}
                       placeholder="Enter new provider API key..."
-                      className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs font-mono text-slate-900 focus:outline-none focus:border-emerald-500"
+                      className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-500"
                     />
                   ) : (
                     <div className="w-full flex items-center justify-between rounded-xl border border-slate-200/80 bg-white px-3 py-2 text-xs font-mono text-slate-700">
@@ -250,16 +250,16 @@ export const ThreatIntelSettings: React.FC<Props> = ({ integrations, onUpdateInt
                     type="button"
                     disabled={isTesting}
                     onClick={() => handleTestConnection(item)}
-                    className="flex items-center gap-1.5 rounded-xl border border-emerald-200 bg-emerald-50/80 px-3.5 py-2 text-xs font-bold text-emerald-800 hover:bg-emerald-100 transition-colors disabled:opacity-60 cursor-pointer shadow-2xs"
+                    className="flex items-center gap-1.5 rounded-xl border border-blue-200 bg-blue-50/80 px-3.5 py-2 text-xs font-bold text-blue-700 hover:bg-blue-100 transition-colors disabled:opacity-60 cursor-pointer shadow-2xs"
                   >
                     {isTesting ? (
                       <>
-                        <span className="h-3 w-3 animate-spin rounded-full border-2 border-emerald-700 border-t-transparent" />
+                        <span className="h-3 w-3 animate-spin rounded-full border-2 border-blue-700 border-t-transparent" />
                         <span>Testing...</span>
                       </>
                     ) : (
                       <>
-                        <Wifi className="h-3.5 w-3.5 text-emerald-600" />
+                        <Wifi className="h-3.5 w-3.5 text-blue-600" />
                         <span>Test Connection</span>
                       </>
                     )}

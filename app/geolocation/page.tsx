@@ -66,7 +66,7 @@ export default function GeolocationPage() {
                 <button
                   onClick={() => setViewState('normal')}
                   className={`rounded-full px-2.5 py-0.5 transition-colors ${
-                    viewState === 'normal' ? 'bg-teal-100 text-teal-800' : 'text-slate-500 hover:text-slate-800'
+                    viewState === 'normal' ? 'bg-blue-100 text-blue-800' : 'text-slate-500 hover:text-slate-800'
                   }`}
                 >
                   Live Map
@@ -74,7 +74,7 @@ export default function GeolocationPage() {
                 <button
                   onClick={() => setViewState('loading')}
                   className={`rounded-full px-2.5 py-0.5 transition-colors ${
-                    viewState === 'loading' ? 'bg-teal-100 text-teal-800' : 'text-slate-500 hover:text-slate-800'
+                    viewState === 'loading' ? 'bg-blue-100 text-blue-800' : 'text-slate-500 hover:text-slate-800'
                   }`}
                 >
                   Loading
@@ -82,7 +82,7 @@ export default function GeolocationPage() {
                 <button
                   onClick={() => setViewState('empty')}
                   className={`rounded-full px-2.5 py-0.5 transition-colors ${
-                    viewState === 'empty' ? 'bg-teal-100 text-teal-800' : 'text-slate-500 hover:text-slate-800'
+                    viewState === 'empty' ? 'bg-blue-100 text-blue-800' : 'text-slate-500 hover:text-slate-800'
                   }`}
                 >
                   Empty

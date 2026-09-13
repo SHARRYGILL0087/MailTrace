@@ -160,9 +160,9 @@ export const ForensicReportPreview: React.FC<ForensicReportPreviewProps> = ({
 
           <button
             onClick={onVerifyClick}
-            className="inline-flex items-center gap-1.5 rounded-2xl border border-emerald-200 bg-emerald-50 px-3.5 py-2 text-xs font-bold text-emerald-800 hover:bg-emerald-100 transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 rounded-2xl border border-blue-200 bg-blue-50 px-3.5 py-2 text-xs font-bold text-blue-700 hover:bg-blue-100 transition-colors cursor-pointer"
           >
-            <Link2 className="h-3.5 w-3.5 text-emerald-600" />
+            <Link2 className="h-3.5 w-3.5 text-blue-600" />
             <span>Verify Evidence</span>
           </button>
         </div>
@@ -636,7 +636,7 @@ export const ForensicReportPreview: React.FC<ForensicReportPreviewProps> = ({
                   </div>
                   <button
                     onClick={onVerifyClick}
-                    className="inline-flex items-center gap-1.5 rounded-2xl bg-emerald-700 px-3.5 py-1.5 text-xs font-bold text-white hover:bg-emerald-800 transition-colors cursor-pointer shrink-0"
+                    className="inline-flex items-center gap-1.5 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 px-3.5 py-1.5 text-xs font-bold text-white shadow-xs hover:from-blue-700 hover:to-indigo-700 transition-colors cursor-pointer shrink-0"
                   >
                     <ShieldCheck className="h-3.5 w-3.5" />
                     <span>Verify Ledger Signature</span>

@@ -43,7 +43,7 @@ export const AIDetectionSettings: React.FC<Props> = ({ settings, onSave, onReset
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-slate-100">
         <div>
           <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
-            <Sparkles className="h-4 w-4 text-emerald-600" />
+            <Sparkles className="h-4 w-4 text-blue-600" />
             <span>AI & Detection</span>
           </h2>
           <p className="text-xs text-slate-500 mt-0.5">
@@ -87,7 +87,7 @@ export const AIDetectionSettings: React.FC<Props> = ({ settings, onSave, onReset
                 <p className="text-[11px] text-slate-400">Core neural classifier for phishing lures</p>
               </div>
               <div className={`flex h-5 w-9 shrink-0 items-center rounded-full p-0.5 transition-colors ${
-                formData.aiDetection ? 'bg-emerald-600' : 'bg-slate-300'
+                formData.aiDetection ? 'bg-blue-600' : 'bg-slate-300'
               }`}>
                 <div className={`h-4 w-4 rounded-full bg-white shadow-xs transform transition-transform ${
                   formData.aiDetection ? 'translate-x-4' : 'translate-x-0'
@@ -105,7 +105,7 @@ export const AIDetectionSettings: React.FC<Props> = ({ settings, onSave, onReset
                 <p className="text-[11px] text-slate-400">Transformer-based intent & urgency extraction</p>
               </div>
               <div className={`flex h-5 w-9 shrink-0 items-center rounded-full p-0.5 transition-colors ${
-                formData.nlpAnalysis ? 'bg-emerald-600' : 'bg-slate-300'
+                formData.nlpAnalysis ? 'bg-blue-600' : 'bg-slate-300'
               }`}>
                 <div className={`h-4 w-4 rounded-full bg-white shadow-xs transform transition-transform ${
                   formData.nlpAnalysis ? 'translate-x-4' : 'translate-x-0'
@@ -123,7 +123,7 @@ export const AIDetectionSettings: React.FC<Props> = ({ settings, onSave, onReset
                 <p className="text-[11px] text-slate-400">MIME anomalies, relay delays & hop deviations</p>
               </div>
               <div className={`flex h-5 w-9 shrink-0 items-center rounded-full p-0.5 transition-colors ${
-                formData.anomalyDetection ? 'bg-emerald-600' : 'bg-slate-300'
+                formData.anomalyDetection ? 'bg-blue-600' : 'bg-slate-300'
               }`}>
                 <div className={`h-4 w-4 rounded-full bg-white shadow-xs transform transition-transform ${
                   formData.anomalyDetection ? 'translate-x-4' : 'translate-x-0'
@@ -141,7 +141,7 @@ export const AIDetectionSettings: React.FC<Props> = ({ settings, onSave, onReset
                 <p className="text-[11px] text-slate-400">Executive lookalike domain & homoglyph checks</p>
               </div>
               <div className={`flex h-5 w-9 shrink-0 items-center rounded-full p-0.5 transition-colors ${
-                formData.spoofingDetection ? 'bg-emerald-600' : 'bg-slate-300'
+                formData.spoofingDetection ? 'bg-blue-600' : 'bg-slate-300'
               }`}>
                 <div className={`h-4 w-4 rounded-full bg-white shadow-xs transform transition-transform ${
                   formData.spoofingDetection ? 'translate-x-4' : 'translate-x-0'
@@ -159,7 +159,7 @@ export const AIDetectionSettings: React.FC<Props> = ({ settings, onSave, onReset
                 <p className="text-[11px] text-slate-400">Generate feature attribution rationale for security audit compliance</p>
               </div>
               <div className={`flex h-5 w-9 shrink-0 items-center rounded-full p-0.5 transition-colors ${
-                formData.explainability ? 'bg-emerald-600' : 'bg-slate-300'
+                formData.explainability ? 'bg-blue-600' : 'bg-slate-300'
               }`}>
                 <div className={`h-4 w-4 rounded-full bg-white shadow-xs transform transition-transform ${
                   formData.explainability ? 'translate-x-4' : 'translate-x-0'
@@ -184,7 +184,7 @@ export const AIDetectionSettings: React.FC<Props> = ({ settings, onSave, onReset
                   onClick={() => handleExplainabilityMethod(method)}
                   className={`rounded-xl border px-4 py-2 text-xs font-bold transition-all cursor-pointer ${
                     formData.explainabilityMethod === method
-                      ? 'border-emerald-300 bg-emerald-50 text-emerald-800 shadow-2xs'
+                      ? 'border-blue-300 bg-blue-50 text-blue-800 shadow-2xs'
                       : 'border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100'
                   }`}
                 >
@@ -213,7 +213,7 @@ export const AIDetectionSettings: React.FC<Props> = ({ settings, onSave, onReset
                   formData.threatSensitivity === level
                     ? level === 'High'
                       ? 'border-rose-300 bg-rose-50 text-rose-800 shadow-2xs'
-                      : 'border-emerald-300 bg-emerald-50 text-emerald-800 shadow-2xs'
+                      : 'border-blue-300 bg-blue-50 text-blue-800 shadow-2xs'
                     : 'border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100'
                 }`}
               >
@@ -229,7 +229,7 @@ export const AIDetectionSettings: React.FC<Props> = ({ settings, onSave, onReset
             <label className="text-xs font-bold text-slate-800">
               Confidence Threshold
             </label>
-            <span className="font-mono text-xs font-extrabold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-lg">
+            <span className="font-mono text-xs font-extrabold text-blue-800 bg-blue-50 border border-blue-200 px-2.5 py-0.5 rounded-lg">
               {(formData.confidenceThreshold * 100).toFixed(0)}% ({formData.confidenceThreshold.toFixed(2)})
             </span>
           </div>
@@ -246,7 +246,7 @@ export const AIDetectionSettings: React.FC<Props> = ({ settings, onSave, onReset
               setFormData((prev) => ({ ...prev, confidenceThreshold: parseFloat(e.target.value) }));
               setIsSaved(false);
             }}
-            className="w-full accent-emerald-600 h-2 bg-slate-200 rounded-lg cursor-pointer"
+            className="w-full accent-blue-600 h-2 bg-slate-200 rounded-lg cursor-pointer"
           />
         </div>
 
@@ -255,7 +255,7 @@ export const AIDetectionSettings: React.FC<Props> = ({ settings, onSave, onReset
           <div className="flex items-center gap-2">
             <button
               type="submit"
-              className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 px-6 py-2.5 text-xs font-bold text-white shadow-md shadow-emerald-500/20 hover:from-emerald-700 hover:to-teal-700 transition-all cursor-pointer"
+              className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-2.5 text-xs font-bold text-white shadow-md shadow-blue-500/25 hover:from-blue-700 hover:to-indigo-700 transition-all cursor-pointer"
             >
               <Save className="h-4 w-4" />
               <span>Save Changes</span>
@@ -272,7 +272,7 @@ export const AIDetectionSettings: React.FC<Props> = ({ settings, onSave, onReset
           </div>
 
           {isSaved && (
-            <span className="flex items-center gap-1.5 text-xs font-bold text-emerald-700 animate-in fade-in">
+            <span className="flex items-center gap-1.5 text-xs font-bold text-blue-700 animate-in fade-in">
               <Check className="h-4 w-4" />
               <span>Settings saved successfully.</span>
             </span>

@@ -71,7 +71,7 @@ export const HeaderAnomalies: React.FC<Props> = ({ anomalies, onViewEvidence }) 
                 <span className="font-mono text-slate-400">{anom.evidenceRef}</span>
                 <button
                   onClick={() => onViewEvidence?.(anom)}
-                  className="flex items-center gap-1 font-bold text-emerald-600 hover:text-emerald-800 hover:underline transition-colors"
+                  className="flex items-center gap-1 font-bold text-blue-600 hover:text-blue-800 hover:underline transition-colors"
                 >
                   <span>View evidence</span>
                   <ExternalLink className="h-3 w-3" />

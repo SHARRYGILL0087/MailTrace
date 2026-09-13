@@ -75,7 +75,7 @@ export const IntelRelatedIndicators: React.FC<Props> = ({ relations, onSelectInd
               }}
               className={`rounded-2xl border border-slate-200/80 bg-slate-50/60 p-4 transition-all duration-200 space-y-2.5 ${
                 isNavigable
-                  ? 'hover:bg-white hover:border-emerald-400 hover:shadow-xs cursor-pointer group'
+                  ? 'hover:bg-white hover:border-blue-400 hover:shadow-xs cursor-pointer group'
                   : 'opacity-90'
               }`}
             >
@@ -91,19 +91,19 @@ export const IntelRelatedIndicators: React.FC<Props> = ({ relations, onSelectInd
                 <span className="font-mono text-xs font-semibold text-slate-500 truncate max-w-[100px]">
                   {rel.from}
                 </span>
-                <ArrowRight className="h-3.5 w-3.5 text-slate-400 shrink-0 group-hover:text-emerald-600 group-hover:translate-x-0.5 transition-all" />
+                <ArrowRight className="h-3.5 w-3.5 text-slate-400 shrink-0 group-hover:text-blue-600 group-hover:translate-x-0.5 transition-all" />
                 <div className="flex items-center gap-1.5 min-w-0 flex-1">
-                  <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-emerald-50 text-emerald-700 shrink-0">
+                  <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-blue-50 text-blue-700 shrink-0">
                     <TargetIcon className="h-3.5 w-3.5" />
                   </div>
-                  <span className="font-mono text-xs font-bold text-slate-900 truncate group-hover:text-emerald-700 transition-colors">
+                  <span className="font-mono text-xs font-bold text-slate-900 truncate group-hover:text-blue-700 transition-colors">
                     {rel.to}
                   </span>
                 </div>
               </div>
 
               {isNavigable && (
-                <div className="flex items-center justify-end text-[10px] font-bold text-emerald-700 opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="flex items-center justify-end text-[10px] font-bold text-blue-700 opacity-0 group-hover:opacity-100 transition-opacity">
                   <span>Pivot to indicator →</span>
                 </div>
               )}

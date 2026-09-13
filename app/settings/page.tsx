@@ -218,7 +218,7 @@ function SettingsContent() {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="space-y-1">
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-tr from-emerald-600 via-teal-600 to-cyan-500 text-white shadow-sm shadow-emerald-500/25">
+              <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-tr from-blue-600 via-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/25">
                 <Settings className="h-5 w-5" />
               </div>
               <h1 className="text-2xl font-black tracking-tight text-slate-900 sm:text-3xl">
@@ -231,8 +231,8 @@ function SettingsContent() {
           </div>
 
           {/* System Operational Badge */}
-          <div className="flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50/80 px-3.5 py-1.5 text-xs font-bold text-emerald-800 shadow-xs self-start sm:self-auto shrink-0">
-            <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+          <div className="flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50/80 px-3.5 py-1.5 text-xs font-bold text-blue-800 shadow-xs self-start sm:self-auto shrink-0">
+            <span className="h-2 w-2 rounded-full bg-blue-500 animate-pulse" />
             <span>System Operational</span>
           </div>
         </div>

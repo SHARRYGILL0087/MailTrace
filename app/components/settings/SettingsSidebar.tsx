@@ -44,11 +44,11 @@ export const SettingsSidebar: React.FC<Props> = ({ activeTab, onTabChange }) => 
                 onClick={() => onTabChange(tab.id)}
                 className={`flex items-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold transition-all ${
                   isActive
-                    ? 'bg-emerald-50 text-emerald-800 font-bold shadow-xs'
+                    ? 'bg-blue-50 text-blue-700 font-bold shadow-xs'
                     : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
                 }`}
               >
-                <Icon className={`h-4 w-4 ${isActive ? 'text-emerald-600' : 'text-slate-400'}`} />
+                <Icon className={`h-4 w-4 ${isActive ? 'text-blue-600' : 'text-slate-400'}`} />
                 <span>{tab.label}</span>
               </button>
             );
@@ -73,14 +73,14 @@ export const SettingsSidebar: React.FC<Props> = ({ activeTab, onTabChange }) => 
                 onClick={() => onTabChange(tab.id)}
                 className={`group flex w-full items-center justify-between rounded-2xl px-3.5 py-2.5 text-xs font-semibold transition-all duration-200 cursor-pointer ${
                   isActive
-                    ? 'bg-emerald-50 text-emerald-800 font-bold shadow-xs'
+                    ? 'bg-blue-50 text-blue-700 font-bold shadow-xs'
                     : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900 hover:translate-x-0.5'
                 }`}
               >
                 <div className="flex items-center gap-3">
                   <Icon
                     className={`h-4 w-4 transition-colors duration-200 ${
-                      isActive ? 'text-emerald-600' : 'text-slate-400 group-hover:text-emerald-600'
+                      isActive ? 'text-blue-600' : 'text-slate-400 group-hover:text-blue-600'
                     }`}
                   />
                   <span>{tab.label}</span>
@@ -89,7 +89,7 @@ export const SettingsSidebar: React.FC<Props> = ({ activeTab, onTabChange }) => 
                 {tab.badge && (
                   <span className={`rounded-full px-2 py-0.5 text-[10px] font-bold ${
                     isActive
-                      ? 'bg-emerald-100/80 text-emerald-800'
+                      ? 'bg-blue-100/80 text-blue-800'
                       : 'bg-slate-100 text-slate-500 group-hover:bg-slate-200'
                   }`}>
                     {tab.badge}
@@ -104,7 +104,7 @@ export const SettingsSidebar: React.FC<Props> = ({ activeTab, onTabChange }) => 
         <div className="mt-6 rounded-2xl border border-slate-100 bg-slate-50/70 p-3">
           <div className="flex items-center justify-between">
             <span className="text-[11px] font-semibold text-slate-700">SOC Profile</span>
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+            <span className="h-1.5 w-1.5 rounded-full bg-blue-500" />
           </div>
           <p className="mt-0.5 text-[10px] text-slate-400">Admin Role: Tier-3 Forensics</p>
         </div>

@@ -106,7 +106,7 @@ export const InfrastructureMap: React.FC<Props> = ({ geoData, onOpenGeolocation 
 
           <button
             onClick={onOpenGeolocation}
-            className="flex w-full items-center justify-center gap-2 rounded-2xl bg-emerald-50 border border-emerald-100 py-2.5 text-xs font-bold text-emerald-800 hover:bg-emerald-100 transition-colors"
+            className="flex w-full items-center justify-center gap-2 rounded-2xl bg-blue-50 border border-blue-200 py-2.5 text-xs font-bold text-blue-700 hover:bg-blue-100 transition-colors"
           >
             <span>Open Full Geolocation</span>
             <ArrowRight className="h-3.5 w-3.5" />

@@ -36,8 +36,8 @@ export const InvestigationActionPanel: React.FC<Props> = ({
     {
       label: 'Analyze Again',
       icon: RotateCcw,
-      iconColor: 'text-emerald-600',
-      bgColor: 'bg-emerald-50/70 hover:bg-emerald-100/70',
+      iconColor: 'text-blue-600',
+      bgColor: 'bg-blue-50/70 hover:bg-blue-100/70',
       onClick: onAnalyzeAgain,
     },
     {
@@ -64,15 +64,15 @@ export const InvestigationActionPanel: React.FC<Props> = ({
     {
       label: 'Generate Report',
       icon: FileText,
-      iconColor: 'text-emerald-600',
-      bgColor: 'bg-emerald-50/70 hover:bg-emerald-100/70',
+      iconColor: 'text-blue-600',
+      bgColor: 'bg-blue-50/70 hover:bg-blue-100/70',
       onClick: onGenerateReport,
     },
     {
       label: 'Verify Evidence',
       icon: ShieldCheck,
-      iconColor: 'text-teal-600',
-      bgColor: 'bg-teal-50/70 hover:bg-teal-100/70',
+      iconColor: 'text-indigo-600',
+      bgColor: 'bg-indigo-50/70 hover:bg-indigo-100/70',
       onClick: onVerifyEvidence,
     },
   ];

@@ -116,9 +116,9 @@ export const ReportActionMenu: React.FC<ReportActionMenuProps> = ({
               onVerify(report);
               setIsOpen(false);
             }}
-            className="flex w-full items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors cursor-pointer"
+            className="flex w-full items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition-colors cursor-pointer"
           >
-            <Link2 className="h-3.5 w-3.5 text-emerald-600" />
+            <Link2 className="h-3.5 w-3.5 text-blue-600" />
             <span>⛓️ Verify Evidence</span>
           </button>
 

@@ -21,7 +21,7 @@ export const IntelRelatedInvestigations: React.FC<Props> = ({ cases, onOpenCreat
           <button
             type="button"
             onClick={onOpenCreateCase}
-            className="text-xs font-bold text-emerald-700 hover:text-emerald-800 transition-colors"
+            className="text-xs font-bold text-blue-600 hover:text-blue-700 transition-colors"
           >
             + Create New Case
           </button>
@@ -69,7 +69,7 @@ export const IntelRelatedInvestigations: React.FC<Props> = ({ cases, onOpenCreat
           </button>
           <Link
             href="/investigations"
-            className="flex items-center gap-1 text-xs font-bold text-emerald-700 hover:text-emerald-800 transition-colors ml-1"
+            className="flex items-center gap-1 text-xs font-bold text-blue-600 hover:text-blue-700 transition-colors ml-1"
           >
             <span>View All</span>
             <ArrowRight className="h-3.5 w-3.5" />
@@ -96,14 +96,14 @@ export const IntelRelatedInvestigations: React.FC<Props> = ({ cases, onOpenCreat
               <tr key={c.id} className="group hover:bg-slate-50/80 transition-colors">
                 {/* Case ID */}
                 <td className="py-3.5 pr-3">
-                  <span className="font-mono text-xs font-extrabold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-md">
+                  <span className="font-mono text-xs font-extrabold text-blue-800 bg-blue-100 px-2 py-0.5 rounded-md">
                     {c.id}
                   </span>
                 </td>
 
                 {/* Title & Type */}
                 <td className="py-3.5 px-3 max-w-[220px]">
-                  <p className="font-bold text-slate-900 truncate group-hover:text-emerald-700 transition-colors">
+                  <p className="font-bold text-slate-900 truncate group-hover:text-blue-700 transition-colors">
                     {c.title}
                   </p>
                   <span className="text-[11px] text-slate-400 font-medium">{c.threat_type}</span>
@@ -148,7 +148,7 @@ export const IntelRelatedInvestigations: React.FC<Props> = ({ cases, onOpenCreat
                   <div className="flex items-center justify-end gap-1.5">
                     <Link
                       href={`/investigation/${c.id}`}
-                      className="inline-flex items-center gap-1 rounded-xl bg-emerald-50 px-3 py-1.5 text-[11px] font-bold text-emerald-800 hover:bg-emerald-100 transition-colors"
+                      className="inline-flex items-center gap-1 rounded-xl bg-blue-50 px-3 py-1.5 text-[11px] font-bold text-blue-700 hover:bg-blue-100 transition-colors"
                     >
                       <span>View</span>
                       <ArrowRight className="h-3 w-3" />

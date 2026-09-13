@@ -45,9 +45,9 @@ export const IntelEmptyState: React.FC<Props> = ({ onSelectIndicator }) => {
       
       {/* Primary Empty State Box */}
       <div className="rounded-3xl border border-slate-200/80 bg-white p-10 md:p-14 text-center shadow-xs">
-        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-3xl bg-slate-50 border border-slate-200/80 text-emerald-600 shadow-2xs mb-4">
+        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-3xl bg-slate-50 border border-slate-200/80 text-blue-600 shadow-2xs mb-4">
           <div className="relative">
-            <ShieldCheck className="h-8 w-8 text-emerald-600" />
+            <ShieldCheck className="h-8 w-8 text-blue-600" />
             <Search className="h-4 w-4 text-slate-500 absolute -bottom-1 -right-1 bg-white rounded-full p-0.5" />
           </div>
         </div>
@@ -73,7 +73,7 @@ export const IntelEmptyState: React.FC<Props> = ({ onSelectIndicator }) => {
       {/* Suggested Quick Starter Cards */}
       <div>
         <div className="flex items-center gap-2 mb-3">
-          <Sparkles className="h-4 w-4 text-emerald-600" />
+          <Sparkles className="h-4 w-4 text-blue-600" />
           <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500">
             Quick Investigation Starters
           </h3>
@@ -87,13 +87,13 @@ export const IntelEmptyState: React.FC<Props> = ({ onSelectIndicator }) => {
                 key={cat.title}
                 type="button"
                 onClick={() => onSelectIndicator(cat.example, cat.type)}
-                className="group text-left rounded-3xl border border-slate-200/80 bg-white p-5 shadow-xs hover:border-emerald-300 hover:shadow-md transition-all flex flex-col justify-between space-y-3 cursor-pointer"
+                className="group text-left rounded-3xl border border-slate-200/80 bg-white p-5 shadow-xs hover:border-blue-300 hover:shadow-md transition-all flex flex-col justify-between space-y-3 cursor-pointer"
               >
                 <div>
-                  <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-slate-50 text-slate-700 border border-slate-100 group-hover:bg-emerald-50 group-hover:text-emerald-700 transition-colors mb-3">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-slate-50 text-slate-700 border border-slate-100 group-hover:bg-blue-50 group-hover:text-blue-700 transition-colors mb-3">
                     <Icon className="h-4 w-4" />
                   </div>
-                  <h4 className="text-xs font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
+                  <h4 className="text-xs font-bold text-slate-900 group-hover:text-blue-700 transition-colors">
                     {cat.title}
                   </h4>
                   <p className="text-[11px] text-slate-400 mt-1 leading-normal">
@@ -101,7 +101,7 @@ export const IntelEmptyState: React.FC<Props> = ({ onSelectIndicator }) => {
                   </p>
                 </div>
 
-                <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-600 group-hover:text-emerald-700">
+                <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-600 group-hover:text-blue-700">
                   <span className="font-mono text-[11px] truncate max-w-[120px]">{cat.example}</span>
                   <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>

@@ -45,7 +45,7 @@ export const AnalystNotes: React.FC<Props> = ({ notes, onAddNote }) => {
             onChange={(e) => setNewNoteText(e.target.value)}
             placeholder="Enter investigation notes..."
             rows={3}
-            className="w-full rounded-2xl border border-slate-200 bg-slate-50/70 p-4 text-xs font-medium text-slate-800 placeholder-slate-400 focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-3 focus:ring-emerald-100 transition-all resize-none"
+            className="w-full rounded-2xl border border-slate-200 bg-slate-50/70 p-4 text-xs font-medium text-slate-800 placeholder-slate-400 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-3 focus:ring-blue-100 transition-all resize-none"
           />
         </div>
 
@@ -57,11 +57,11 @@ export const AnalystNotes: React.FC<Props> = ({ notes, onAddNote }) => {
           <button
             type="submit"
             disabled={!newNoteText.trim()}
-            className="flex items-center gap-2 rounded-2xl bg-emerald-600 px-5 py-2.5 text-xs font-bold text-white shadow-md shadow-emerald-500/20 hover:bg-emerald-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            className="flex items-center gap-2 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 px-5 py-2.5 text-xs font-bold text-white shadow-md shadow-blue-500/25 hover:from-blue-700 hover:to-indigo-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isSaved ? (
               <>
-                <Check className="h-3.5 w-3.5 text-emerald-300" />
+                <Check className="h-3.5 w-3.5 text-blue-200" />
                 <span>Note Saved</span>
               </>
             ) : (

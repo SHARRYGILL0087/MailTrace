@@ -49,7 +49,7 @@ export const GeneralSettings: React.FC<Props> = ({ settings, onSave, onReset }) 
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-slate-100">
         <div>
           <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
-            <Sliders className="h-4 w-4 text-emerald-600" />
+            <Sliders className="h-4 w-4 text-blue-600" />
             <span>General Settings</span>
           </h2>
           <p className="text-xs text-slate-500 mt-0.5">
@@ -79,7 +79,7 @@ export const GeneralSettings: React.FC<Props> = ({ settings, onSave, onReset }) 
             type="text"
             value={formData.appName}
             onChange={(e) => handleChange('appName', e.target.value)}
-            className="w-full sm:w-80 rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 font-semibold text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-emerald-500 transition-colors"
+            className="w-full sm:w-80 rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 font-semibold text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-blue-500 transition-colors"
           />
         </div>
 
@@ -94,7 +94,7 @@ export const GeneralSettings: React.FC<Props> = ({ settings, onSave, onReset }) 
           <select
             value={formData.timezone}
             onChange={(e) => handleChange('timezone', e.target.value)}
-            className="w-full sm:w-80 rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 font-semibold text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-emerald-500 transition-colors"
+            className="w-full sm:w-80 rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 font-semibold text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-blue-500 transition-colors"
           >
             {TIMEZONES.map((tz) => (
               <option key={tz} value={tz}>
@@ -120,7 +120,7 @@ export const GeneralSettings: React.FC<Props> = ({ settings, onSave, onReset }) 
                 onClick={() => handleChange('dateFormat', fmt)}
                 className={`rounded-xl border px-3.5 py-2 text-xs font-mono font-bold transition-all cursor-pointer ${
                   formData.dateFormat === fmt
-                    ? 'border-emerald-300 bg-emerald-50 text-emerald-800 shadow-2xs'
+                    ? 'border-blue-400 bg-blue-50 text-blue-700 font-bold shadow-2xs'
                     : 'border-slate-200 bg-slate-50/70 text-slate-600 hover:bg-slate-100'
                 }`}
               >
@@ -146,7 +146,7 @@ export const GeneralSettings: React.FC<Props> = ({ settings, onSave, onReset }) 
                 onClick={() => handleChange('theme', t)}
                 className={`rounded-xl border px-4 py-2 text-xs font-bold transition-all cursor-pointer ${
                   formData.theme === t
-                    ? 'border-emerald-300 bg-emerald-50 text-emerald-800 shadow-2xs'
+                    ? 'border-blue-400 bg-blue-50 text-blue-700 font-bold shadow-2xs'
                     : 'border-slate-200 bg-slate-50/70 text-slate-600 hover:bg-slate-100'
                 }`}
               >
@@ -171,14 +171,14 @@ export const GeneralSettings: React.FC<Props> = ({ settings, onSave, onReset }) 
                 onClick={() => handleChange('defaultView', view)}
                 className={`rounded-2xl border p-3.5 transition-all cursor-pointer ${
                   formData.defaultView === view
-                    ? 'border-emerald-400 bg-emerald-50/60 text-emerald-900 shadow-xs'
+                    ? 'border-blue-400 bg-blue-50/60 text-blue-900 shadow-xs'
                     : 'border-slate-200 bg-slate-50/50 text-slate-700 hover:bg-white hover:border-slate-300'
                 }`}
               >
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-bold">{view}</span>
                   {formData.defaultView === view && (
-                    <Check className="h-3.5 w-3.5 text-emerald-600" />
+                    <Check className="h-3.5 w-3.5 text-blue-600" />
                   )}
                 </div>
               </div>
@@ -191,7 +191,7 @@ export const GeneralSettings: React.FC<Props> = ({ settings, onSave, onReset }) 
           <div className="flex items-center gap-2">
             <button
               type="submit"
-              className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 px-6 py-2.5 text-xs font-bold text-white shadow-md shadow-emerald-500/20 hover:from-emerald-700 hover:to-teal-700 transition-all cursor-pointer"
+              className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-2.5 text-xs font-bold text-white shadow-md shadow-blue-500/25 hover:from-blue-700 hover:to-indigo-700 transition-all cursor-pointer"
             >
               <Save className="h-4 w-4" />
               <span>Save Changes</span>
@@ -208,7 +208,7 @@ export const GeneralSettings: React.FC<Props> = ({ settings, onSave, onReset }) 
           </div>
 
           {isSaved && (
-            <span className="flex items-center gap-1.5 text-xs font-bold text-emerald-700 animate-in fade-in">
+            <span className="flex items-center gap-1.5 text-xs font-bold text-blue-700 animate-in fade-in">
               <Check className="h-4 w-4" />
               <span>Settings saved successfully.</span>
             </span>

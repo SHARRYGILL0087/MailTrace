@@ -24,12 +24,12 @@ export const SettingsToast: React.FC<Props> = ({ toast, onClose }) => {
     <div className="fixed bottom-6 right-6 z-50 animate-in fade-in slide-in-from-bottom-5 duration-200">
       <div className={`flex items-center gap-3 rounded-2xl border px-4 py-3 shadow-lg backdrop-blur-md ${
         isSuccess
-          ? 'border-emerald-200 bg-emerald-50/95 text-emerald-900'
+          ? 'border-blue-200 bg-blue-50/95 text-blue-900'
           : isError
           ? 'border-rose-200 bg-rose-50/95 text-rose-900'
           : 'border-blue-200 bg-blue-50/95 text-blue-900'
       }`}>
-        {isSuccess && <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />}
+        {isSuccess && <CheckCircle2 className="h-4 w-4 text-blue-600 shrink-0" />}
         {isError && <AlertCircle className="h-4 w-4 text-rose-600 shrink-0" />}
         {!isSuccess && !isError && <Info className="h-4 w-4 text-blue-600 shrink-0" />}
 

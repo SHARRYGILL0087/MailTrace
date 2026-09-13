@@ -75,7 +75,7 @@ export default function InvestigationsListPage() {
 
               <Link
                 href={`/investigation/${activeCase.id}`}
-                className="flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 px-5 py-2.5 text-xs font-bold text-white shadow-md shadow-emerald-500/20 hover:from-emerald-700 hover:to-teal-700 transition-all self-start md:self-auto"
+                className="flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 px-5 py-2.5 text-xs font-bold text-white shadow-md shadow-blue-500/25 hover:from-blue-700 hover:to-indigo-700 transition-all self-start md:self-auto"
               >
                 <span>View Active Case #{activeCase.id}</span>
                 <ArrowRight className="h-4 w-4" />
@@ -89,7 +89,7 @@ export default function InvestigationsListPage() {
                 <input
                   type="text"
                   placeholder="Filter investigations by ID, domain, sender..."
-                  className="w-full rounded-xl border border-slate-200 bg-slate-50 pl-9 pr-3 py-2 text-xs font-medium text-slate-800 placeholder-slate-400 focus:outline-none focus:border-emerald-500"
+                  className="w-full rounded-xl border border-slate-200 bg-slate-50 pl-9 pr-3 py-2 text-xs font-medium text-slate-800 placeholder-slate-400 focus:outline-none focus:border-blue-500"
                 />
               </div>
 
@@ -112,20 +112,20 @@ export default function InvestigationsListPage() {
                     href={`/investigation/${c.id}`}
                     className={`group flex flex-col md:flex-row md:items-center justify-between gap-4 rounded-2xl border p-4 transition-all ${
                       c.isActive
-                        ? 'border-emerald-300 bg-emerald-50/40 shadow-xs'
+                        ? 'border-blue-300 bg-blue-50/40 shadow-xs'
                         : 'border-slate-100 bg-slate-50/60 hover:bg-white hover:border-slate-300'
                     }`}
                   >
                     <div className="space-y-1">
                       <div className="flex items-center gap-3">
-                        <span className="font-mono text-xs font-extrabold text-emerald-800 bg-emerald-100 px-2.5 py-0.5 rounded-md">
+                        <span className="font-mono text-xs font-extrabold text-blue-800 bg-blue-100 px-2.5 py-0.5 rounded-md">
                           {c.id}
                         </span>
-                        <h3 className="text-xs font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
+                        <h3 className="text-xs font-bold text-slate-900 group-hover:text-blue-700 transition-colors">
                           {c.title}
                         </h3>
                         {c.isActive && (
-                          <span className="rounded-full bg-emerald-600 px-2 py-0.5 text-[10px] font-bold text-white">
+                          <span className="rounded-full bg-blue-600 px-2 py-0.5 text-[10px] font-bold text-white">
                             Active Session
                           </span>
                         )}
@@ -144,7 +144,7 @@ export default function InvestigationsListPage() {
                         {c.status}
                       </span>
 
-                      <ArrowRight className="h-4 w-4 text-slate-400 group-hover:text-emerald-600 group-hover:translate-x-1 transition-all" />
+                      <ArrowRight className="h-4 w-4 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
                     </div>
                   </Link>
                 ))}

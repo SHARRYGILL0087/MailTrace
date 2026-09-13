@@ -41,8 +41,8 @@ export const InvestigationTimeline: React.FC<Props> = ({ timeline }) => {
           return (
             <div key={idx} className="relative flex items-center gap-4 group">
               {/* Dot Pin */}
-              <div className="absolute -left-6 flex h-6 w-6 items-center justify-center rounded-full bg-white border-2 border-slate-300 group-hover:border-emerald-600 transition-colors">
-                <span className="h-2 w-2 rounded-full bg-emerald-600" />
+              <div className="absolute -left-6 flex h-6 w-6 items-center justify-center rounded-full bg-white border-2 border-slate-300 group-hover:border-blue-600 transition-colors">
+                <span className="h-2 w-2 rounded-full bg-blue-600" />
               </div>
 
               {/* Time Badge */}
@@ -51,8 +51,8 @@ export const InvestigationTimeline: React.FC<Props> = ({ timeline }) => {
               </span>
 
               {/* Event Box */}
-              <div className="flex-1 flex items-center gap-2.5 rounded-2xl border border-slate-100 bg-slate-50/70 p-3 group-hover:bg-emerald-50/40 group-hover:border-emerald-200 transition-all">
-                <IconComponent className="h-4 w-4 text-emerald-600 shrink-0" />
+              <div className="flex-1 flex items-center gap-2.5 rounded-2xl border border-slate-100 bg-slate-50/70 p-3 group-hover:bg-blue-50/40 group-hover:border-blue-200 transition-all">
+                <IconComponent className="h-4 w-4 text-blue-600 shrink-0" />
                 <span className="text-xs font-semibold text-slate-800">{item.event}</span>
               </div>
             </div>

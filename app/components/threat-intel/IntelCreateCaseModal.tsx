@@ -38,7 +38,7 @@ export const IntelCreateCaseModal: React.FC<Props> = ({ isOpen, onClose, data, o
       <div className="relative w-full max-w-lg rounded-3xl border border-slate-200 bg-white p-6 shadow-xl z-10 space-y-4">
         <div className="flex items-center justify-between pb-3 border-b border-slate-100">
           <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-100">
+            <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-blue-50 text-blue-700 border border-blue-100">
               <FolderPlus className="h-4 w-4" />
             </div>
             <div>
@@ -58,7 +58,7 @@ export const IntelCreateCaseModal: React.FC<Props> = ({ isOpen, onClose, data, o
 
         {isSuccess ? (
           <div className="py-8 text-center space-y-2">
-            <CheckCircle2 className="h-10 w-10 text-emerald-600 mx-auto animate-bounce" />
+            <CheckCircle2 className="h-10 w-10 text-blue-600 mx-auto animate-bounce" />
             <h4 className="text-sm font-bold text-slate-900">Case Created Successfully!</h4>
             <p className="text-xs text-slate-500">Incident case assigned to triage queue with prefilled telemetry.</p>
           </div>
@@ -73,7 +73,7 @@ export const IntelCreateCaseModal: React.FC<Props> = ({ isOpen, onClose, data, o
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 required
-                className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 font-medium text-slate-900 focus:bg-white focus:outline-none focus:border-emerald-500"
+                className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 font-medium text-slate-900 focus:bg-white focus:outline-none focus:border-blue-500"
               />
             </div>
 
@@ -97,7 +97,7 @@ export const IntelCreateCaseModal: React.FC<Props> = ({ isOpen, onClose, data, o
                 <select
                   value={priority}
                   onChange={(e) => setPriority(e.target.value as any)}
-                  className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 font-semibold text-slate-800 focus:bg-white focus:outline-none focus:border-emerald-500"
+                  className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 font-semibold text-slate-800 focus:bg-white focus:outline-none focus:border-blue-500"
                 >
                   <option value="Critical">Critical Priority</option>
                   <option value="High">High Priority</option>
@@ -115,7 +115,7 @@ export const IntelCreateCaseModal: React.FC<Props> = ({ isOpen, onClose, data, o
                 rows={3}
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
-                className="w-full rounded-xl border border-slate-200 bg-slate-50 p-2.5 font-medium text-slate-800 focus:bg-white focus:outline-none focus:border-emerald-500 text-xs"
+                className="w-full rounded-xl border border-slate-200 bg-slate-50 p-2.5 font-medium text-slate-800 focus:bg-white focus:outline-none focus:border-blue-500 text-xs"
               />
             </div>
 
@@ -129,7 +129,7 @@ export const IntelCreateCaseModal: React.FC<Props> = ({ isOpen, onClose, data, o
               </button>
               <button
                 type="submit"
-                className="rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 px-5 py-2 text-xs font-bold text-white shadow-md shadow-emerald-500/20 hover:from-emerald-700 hover:to-teal-700"
+                className="rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-5 py-2 text-xs font-bold text-white shadow-md shadow-blue-500/25 hover:from-blue-700 hover:to-indigo-700"
               >
                 Confirm Case Creation
               </button>

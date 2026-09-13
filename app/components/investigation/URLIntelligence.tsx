@@ -58,7 +58,7 @@ export const URLIntelligence: React.FC<Props> = ({ urls, onOpenDetails }) => {
                   {/* URL */}
                   <td className="py-3.5 pr-4 max-w-[260px]">
                     <div className="flex items-center gap-2">
-                      <Link2 className="h-4 w-4 text-slate-400 group-hover:text-emerald-600 shrink-0" />
+                      <Link2 className="h-4 w-4 text-slate-400 group-hover:text-blue-600 shrink-0" />
                       <span className="font-mono font-bold text-slate-900 truncate" title={item.url}>
                         {item.url}
                       </span>
@@ -119,7 +119,7 @@ export const URLIntelligence: React.FC<Props> = ({ urls, onOpenDetails }) => {
 
                       <button
                         onClick={() => onOpenDetails(item)}
-                        className="rounded-xl bg-emerald-50 px-3 py-1 text-[11px] font-bold text-emerald-800 hover:bg-emerald-100 transition-colors"
+                        className="rounded-xl bg-blue-50 px-3 py-1 text-[11px] font-bold text-blue-700 hover:bg-blue-100 transition-colors"
                       >
                         Inspect →
                       </button>

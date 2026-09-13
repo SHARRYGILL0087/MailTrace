@@ -48,7 +48,7 @@ export const EvidenceVerificationModal: React.FC<EvidenceVerificationModalProps>
 
         {/* Header */}
         <div className="flex items-center gap-3 mb-4">
-          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600 border border-emerald-200">
+          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 border border-blue-200">
             <Lock className="h-5 w-5" />
           </div>
           <div>
@@ -63,7 +63,7 @@ export const EvidenceVerificationModal: React.FC<EvidenceVerificationModalProps>
 
         {verifying ? (
           <div className="flex flex-col items-center justify-center py-10 text-center space-y-3">
-            <RefreshCw className="h-8 w-8 animate-spin text-emerald-600" />
+            <RefreshCw className="h-8 w-8 animate-spin text-blue-600" />
             <p className="text-xs font-bold text-slate-700">
               Re-calculating SHA-256 hash & validating ledger node signature...
             </p>
@@ -135,7 +135,7 @@ export const EvidenceVerificationModal: React.FC<EvidenceVerificationModalProps>
                 onClick={handleCopyProof}
                 className="inline-flex items-center gap-1.5 rounded-2xl border border-slate-200 bg-white px-4 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50 transition-colors cursor-pointer"
               >
-                {copied ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5 text-slate-500" />}
+                {copied ? <Check className="h-3.5 w-3.5 text-blue-600" /> : <Copy className="h-3.5 w-3.5 text-slate-500" />}
                 <span>{copied ? 'Proof Copied!' : 'Copy Proof Certificate'}</span>
               </button>
               <button

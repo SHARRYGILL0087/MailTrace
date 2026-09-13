@@ -17,7 +17,7 @@ export const GeoPreviewCard: React.FC = () => {
       <div>
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-teal-50 text-teal-600 border border-teal-100">
+            <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 border border-blue-100">
               <Globe2 className="h-4 w-4" />
             </div>
             <div>
@@ -29,10 +29,10 @@ export const GeoPreviewCard: React.FC = () => {
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
           {locations.map((loc) => (
-            <div key={loc.country} className="rounded-2xl border border-slate-100 bg-slate-50/70 p-3 text-center transition-all hover:bg-white hover:border-teal-200 hover:shadow-xs">
+            <div key={loc.country} className="rounded-2xl border border-slate-100 bg-slate-50/70 p-3 text-center transition-all hover:bg-white hover:border-blue-200 hover:shadow-xs">
               <div className="text-2xl mb-1">{loc.flag}</div>
               <div className="text-xs font-bold text-slate-800 truncate">{loc.country}</div>
-              <div className="mt-1 text-sm font-extrabold text-teal-700">{loc.count} <span className="text-[10px] font-normal text-slate-500">Nodes</span></div>
+              <div className="mt-1 text-sm font-extrabold text-blue-700">{loc.count} <span className="text-[10px] font-normal text-slate-500">Nodes</span></div>
             </div>
           ))}
         </div>
@@ -40,7 +40,7 @@ export const GeoPreviewCard: React.FC = () => {
 
       <Link
         href="/geolocation"
-        className="flex w-full items-center justify-center gap-2 rounded-2xl border border-teal-200 bg-teal-50/70 py-2.5 text-xs font-bold text-teal-800 hover:bg-teal-100 transition-colors"
+        className="flex w-full items-center justify-center gap-2 rounded-2xl border border-blue-200 bg-blue-50/70 py-2.5 text-xs font-bold text-blue-700 hover:bg-blue-100 transition-colors"
       >
         <span>View Map</span>
         <ArrowRight className="h-4 w-4" />

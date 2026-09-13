@@ -81,7 +81,7 @@ export const IntelSearchBar: React.FC<Props> = ({
   return (
     <div className="rounded-3xl border border-slate-200/80 bg-white p-6 shadow-xs space-y-4">
       <form onSubmit={handleSubmit} className="relative">
-        <div className="flex flex-col md:flex-row items-stretch gap-2.5 rounded-2xl border border-slate-200 bg-slate-50/60 p-2 focus-within:border-emerald-500 focus-within:bg-white transition-all duration-200 shadow-2xs">
+        <div className="flex flex-col md:flex-row items-stretch gap-2.5 rounded-2xl border border-slate-200 bg-slate-50/60 p-2 focus-within:border-blue-500 focus-within:bg-white transition-all duration-200 shadow-2xs">
           
           {/* Indicator Type Selector */}
           <div className="relative shrink-0">
@@ -91,10 +91,10 @@ export const IntelSearchBar: React.FC<Props> = ({
               className="flex w-full md:w-auto items-center justify-between gap-2 rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:border-slate-300 transition-colors shadow-2xs"
             >
               <div className="flex items-center gap-2">
-                <CurrentIcon className="h-4 w-4 text-emerald-600 shrink-0" />
+                <CurrentIcon className="h-4 w-4 text-blue-600 shrink-0" />
                 <span className="font-bold">{currentOption.label}</span>
                 {selectedType === 'auto' && query.trim() && (
-                  <span className="rounded bg-emerald-100/70 px-1.5 py-0.2 text-[10px] font-extrabold uppercase text-emerald-800">
+                  <span className="rounded bg-blue-100/70 px-1.5 py-0.2 text-[10px] font-extrabold uppercase text-blue-800">
                     {detectedType}
                   </span>
                 )}
@@ -126,11 +126,11 @@ export const IntelSearchBar: React.FC<Props> = ({
                         }}
                         className={`flex w-full items-center gap-2.5 rounded-xl px-2.5 py-2 text-xs font-semibold transition-colors ${
                           isSelected
-                            ? 'bg-emerald-50 text-emerald-800 font-bold'
+                            ? 'bg-blue-50 text-blue-800 font-bold'
                             : 'text-slate-700 hover:bg-slate-50'
                         }`}
                       >
-                        <Icon className={`h-4 w-4 ${isSelected ? 'text-emerald-600' : 'text-slate-400'}`} />
+                        <Icon className={`h-4 w-4 ${isSelected ? 'text-blue-600' : 'text-slate-400'}`} />
                         <span>{opt.label}</span>
                       </button>
                     );
@@ -166,7 +166,7 @@ export const IntelSearchBar: React.FC<Props> = ({
           <button
             type="submit"
             disabled={!query.trim() || isLoading}
-            className="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 px-6 py-2.5 text-xs font-bold text-white shadow-md shadow-emerald-500/20 hover:from-emerald-700 hover:to-teal-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all shrink-0 cursor-pointer"
+            className="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-2.5 text-xs font-bold text-white shadow-md shadow-blue-500/25 hover:from-blue-700 hover:to-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all shrink-0 cursor-pointer"
           >
             {isLoading ? (
               <span className="flex items-center gap-2">
@@ -193,10 +193,10 @@ export const IntelSearchBar: React.FC<Props> = ({
             key={chip.label}
             type="button"
             onClick={() => handleSelectChip(chip)}
-            className="group flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50/80 px-3 py-1 text-xs font-mono font-medium text-slate-600 hover:bg-emerald-50 hover:border-emerald-300 hover:text-emerald-800 transition-all cursor-pointer"
+            className="group flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50/80 px-3 py-1 text-xs font-mono font-medium text-slate-600 hover:bg-blue-50 hover:border-blue-300 hover:text-blue-800 transition-all cursor-pointer"
           >
             <span className="font-bold">{chip.label}</span>
-            <span className="text-[10px] font-sans text-slate-400 group-hover:text-emerald-600">
+            <span className="text-[10px] font-sans text-slate-400 group-hover:text-blue-600">
               ({chip.note})
             </span>
           </button>

@@ -91,7 +91,7 @@ export const NotificationSettings: React.FC<Props> = ({ settings, onSave, onRese
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-slate-100">
         <div>
           <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
-            <Bell className="h-4 w-4 text-emerald-600" />
+            <Bell className="h-4 w-4 text-blue-600" />
             <span>Notifications</span>
           </h2>
           <p className="text-xs text-slate-500 mt-0.5">
@@ -134,7 +134,7 @@ export const NotificationSettings: React.FC<Props> = ({ settings, onSave, onRese
                   </div>
 
                   <div className={`flex h-5 w-9 shrink-0 items-center rounded-full p-0.5 transition-colors ${
-                    isChecked ? 'bg-emerald-600' : 'bg-slate-300'
+                    isChecked ? 'bg-blue-600' : 'bg-slate-300'
                   }`}>
                     <div className={`h-4 w-4 rounded-full bg-white shadow-xs transform transition-transform ${
                       isChecked ? 'translate-x-4' : 'translate-x-0'
@@ -174,7 +174,7 @@ export const NotificationSettings: React.FC<Props> = ({ settings, onSave, onRese
                   </div>
 
                   <div className={`flex h-5 w-9 shrink-0 items-center rounded-full p-0.5 transition-colors ${
-                    isChecked ? 'bg-emerald-600' : 'bg-slate-300'
+                    isChecked ? 'bg-blue-600' : 'bg-slate-300'
                   }`}>
                     <div className={`h-4 w-4 rounded-full bg-white shadow-xs transform transition-transform ${
                       isChecked ? 'translate-x-4' : 'translate-x-0'
@@ -191,7 +191,7 @@ export const NotificationSettings: React.FC<Props> = ({ settings, onSave, onRese
           <div className="flex items-center gap-2">
             <button
               type="submit"
-              className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 px-6 py-2.5 text-xs font-bold text-white shadow-md shadow-emerald-500/20 hover:from-emerald-700 hover:to-teal-700 transition-all cursor-pointer"
+              className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-2.5 text-xs font-bold text-white shadow-md shadow-blue-500/25 hover:from-blue-700 hover:to-indigo-700 transition-all cursor-pointer"
             >
               <Save className="h-4 w-4" />
               <span>Save Changes</span>
@@ -208,7 +208,7 @@ export const NotificationSettings: React.FC<Props> = ({ settings, onSave, onRese
           </div>
 
           {isSaved && (
-            <span className="flex items-center gap-1.5 text-xs font-bold text-emerald-700 animate-in fade-in">
+            <span className="flex items-center gap-1.5 text-xs font-bold text-blue-700 animate-in fade-in">
               <Check className="h-4 w-4" />
               <span>Settings saved successfully.</span>
             </span>

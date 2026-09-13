@@ -47,13 +47,13 @@ export const Sidebar: React.FC = () => {
               href={route.href}
               className={`group flex w-full items-center gap-3 rounded-2xl px-3.5 py-2.5 text-xs font-semibold transition-all duration-200 ${
                 isActive
-                  ? 'bg-emerald-50 text-emerald-800 font-bold shadow-xs'
+                  ? 'bg-blue-50 text-blue-700 font-bold shadow-xs'
                   : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900 hover:translate-x-0.5'
               }`}
             >
               <Icon
                 className={`h-4 w-4 transition-colors duration-200 ${
-                  isActive ? 'text-emerald-600' : 'text-slate-400 group-hover:text-emerald-600'
+                  isActive ? 'text-blue-600' : 'text-slate-400 group-hover:text-blue-600'
                 }`}
               />
               <span>{route.label}</span>

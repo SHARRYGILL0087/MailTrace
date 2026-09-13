@@ -36,7 +36,7 @@ export const IntelActionPanel: React.FC<Props> = ({ data, onCreateCase, onExport
         {activeCaseId ? (
           <Link
             href={`/investigation/${activeCaseId}`}
-            className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 px-4 py-2.5 text-xs font-bold text-white shadow-md shadow-emerald-500/20 hover:from-emerald-700 hover:to-teal-700 transition-all cursor-pointer"
+            className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-2.5 text-xs font-bold text-white shadow-md shadow-blue-500/25 hover:from-blue-700 hover:to-indigo-700 transition-all cursor-pointer"
           >
             <ShieldAlert className="h-4 w-4" />
             <span>Open Investigation</span>
@@ -44,7 +44,7 @@ export const IntelActionPanel: React.FC<Props> = ({ data, onCreateCase, onExport
         ) : (
           <Link
             href="/investigations"
-            className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 px-4 py-2.5 text-xs font-bold text-white shadow-md shadow-emerald-500/20 hover:from-emerald-700 hover:to-teal-700 transition-all cursor-pointer"
+            className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-2.5 text-xs font-bold text-white shadow-md shadow-blue-500/25 hover:from-blue-700 hover:to-indigo-700 transition-all cursor-pointer"
           >
             <ShieldAlert className="h-4 w-4" />
             <span>Open Investigations</span>
@@ -73,9 +73,9 @@ export const IntelActionPanel: React.FC<Props> = ({ data, onCreateCase, onExport
         <button
           type="button"
           onClick={onCreateCase}
-          className="flex items-center gap-2 rounded-xl border border-emerald-200 bg-emerald-50/70 px-3.5 py-2.5 text-xs font-bold text-emerald-800 hover:bg-emerald-100 transition-colors cursor-pointer"
+          className="flex items-center gap-2 rounded-xl border border-blue-200 bg-blue-50/70 px-3.5 py-2.5 text-xs font-bold text-blue-700 hover:bg-blue-100 transition-colors cursor-pointer"
         >
-          <FolderPlus className="h-4 w-4 text-emerald-600" />
+          <FolderPlus className="h-4 w-4 text-blue-600" />
           <span>Create Case</span>
         </button>
 

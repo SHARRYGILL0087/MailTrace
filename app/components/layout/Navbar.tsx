@@ -47,7 +47,7 @@ export const Navbar: React.FC = () => {
                 href={item.href}
                 className={`rounded-full px-4 py-2 text-xs font-semibold transition-all ${
                   isActive
-                    ? 'bg-emerald-50/90 text-emerald-800'
+                    ? 'bg-blue-50/90 text-blue-700 font-bold'
                     : 'text-slate-600 hover:bg-slate-100/70 hover:text-slate-900'
                 }`}
               >
@@ -71,7 +71,7 @@ export const Navbar: React.FC = () => {
             </button>
             <button aria-label="Notifications" className="relative flex h-9 w-9 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 transition-colors">
               <Bell className="h-4 w-4" />
-              <span className="absolute top-2 right-2 h-1.5 w-1.5 rounded-full bg-emerald-600" />
+              <span className="absolute top-2 right-2 h-1.5 w-1.5 rounded-full bg-blue-600" />
             </button>
             <button aria-label="Help" className="flex h-9 w-9 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 transition-colors">
               <HelpCircle className="h-4 w-4" />

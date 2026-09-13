@@ -38,7 +38,7 @@ export const AboutSettings: React.FC = () => {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-slate-100">
         <div>
           <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
-            <Info className="h-4 w-4 text-emerald-600" />
+            <Info className="h-4 w-4 text-blue-600" />
             <span>About Threat Shield</span>
           </h2>
           <p className="text-xs text-slate-500 mt-0.5">
@@ -46,7 +46,7 @@ export const AboutSettings: React.FC = () => {
           </p>
         </div>
 
-        <span className="rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 px-3 py-1 text-[11px] font-extrabold font-mono">
+        <span className="rounded-full bg-blue-50 text-blue-800 border border-blue-200 px-3 py-1 text-[11px] font-extrabold font-mono">
           v1.0.0
         </span>
       </div>
@@ -133,7 +133,7 @@ export const AboutSettings: React.FC = () => {
             Problem Statement ID: SIH PS 26106 • Cyber Forensics & Anti-Phishing Domain
           </p>
         </div>
-        <span className="rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-[11px] font-bold text-emerald-800 self-start sm:self-auto">
+        <span className="rounded-full bg-blue-50 border border-blue-200 px-3 py-1 text-[11px] font-bold text-blue-800 self-start sm:self-auto">
           Operational Build
         </span>
       </div>
@@ -145,7 +145,7 @@ export const AboutSettings: React.FC = () => {
           <div className="relative w-full max-w-2xl rounded-3xl border border-slate-200 bg-white p-6 shadow-xl z-10 space-y-4 max-h-[85vh] flex flex-col">
             <div className="flex items-center justify-between pb-3 border-b border-slate-100">
               <div className="flex items-center gap-2">
-                <BookOpen className="h-4 w-4 text-emerald-600" />
+                <BookOpen className="h-4 w-4 text-blue-600" />
                 <h3 className="text-sm font-bold text-slate-900">Threat Shield Documentation Reference</h3>
               </div>
               <button
@@ -199,8 +199,8 @@ export const AboutSettings: React.FC = () => {
           <div className="relative w-full max-w-2xl rounded-3xl border border-slate-200 bg-white p-6 shadow-xl z-10 space-y-4 max-h-[85vh] flex flex-col">
             <div className="flex items-center justify-between pb-3 border-b border-slate-100">
               <div className="flex items-center gap-2">
-                <Network className="h-4 w-4 text-emerald-600" />
-                <h3 className="text-sm font-bold text-slate-900">System Architecture Overview</h3>
+                <Network className="h-4 w-4 text-blue-600" />
+                <h3 className="text-sm font-bold text-slate-900">Architecture & Data Flow Diagram</h3>
               </div>
               <button
                 type="button"
@@ -212,9 +212,9 @@ export const AboutSettings: React.FC = () => {
             </div>
 
             <div className="flex-1 overflow-y-auto space-y-4 text-xs text-slate-600 leading-relaxed pr-2">
-              <div className="rounded-2xl border border-slate-200 bg-slate-900 p-4 text-slate-200 font-mono text-[11px] space-y-2">
-                <div>[Client Console: Next.js 16 + React 19]</div>
-                <div className="text-emerald-400 pl-4">↓ HTTPS / REST & Server Actions</div>
+              <div className="space-y-3 font-mono text-[11px] bg-slate-950 text-slate-300 p-4 rounded-2xl border border-slate-800 overflow-x-auto">
+                <div className="text-blue-400 font-bold">Client Layer (Next.js App Router, SSR & Suspense)</div>
+                <div className="text-slate-500 pl-4">↓ HTTPS / REST & Server Actions</div>
                 <div>[API Gateway & Next.js App Router]</div>
                 <div className="text-cyan-400 pl-4">├── MySQL Database (Incident Dossiers & Evidence Hashes)</div>
                 <div className="text-cyan-400 pl-4">├── Python AI Service (PyTorch, SHAP / LIME Feature Engine)</div>

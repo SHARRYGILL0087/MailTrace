@@ -50,7 +50,7 @@ export const RecommendedActions: React.FC<Props> = ({
               {act.completed ? (
                 <CheckSquare className="h-4 w-4 text-emerald-600 shrink-0" />
               ) : (
-                <Square className="h-4 w-4 text-slate-400 group-hover:text-emerald-600 shrink-0" />
+                <Square className="h-4 w-4 text-slate-400 group-hover:text-blue-600 shrink-0" />
               )}
               <span className="text-xs font-bold">{act.text}</span>
             </div>
@@ -76,13 +76,13 @@ export const RecommendedActions: React.FC<Props> = ({
           onClick={onCreateTask}
           className="flex w-full sm:w-auto items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-2.5 text-xs font-bold text-slate-800 hover:bg-slate-50 transition-colors shadow-2xs"
         >
-          <PlusCircle className="h-4 w-4 text-emerald-600" />
+          <PlusCircle className="h-4 w-4 text-blue-600" />
           <span>Create Response Task</span>
         </button>
 
         <button
           onClick={onMarkResolved}
-          className="flex w-full sm:w-auto items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 px-6 py-2.5 text-xs font-bold text-white shadow-md shadow-emerald-500/20 hover:from-emerald-700 hover:to-teal-700 transition-all active:scale-95"
+          className="flex w-full sm:w-auto items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-2.5 text-xs font-bold text-white shadow-md shadow-blue-500/25 hover:from-blue-700 hover:to-indigo-700 transition-all active:scale-95"
         >
           <CheckCircle2 className="h-4 w-4" />
           <span>Mark as Resolved</span>

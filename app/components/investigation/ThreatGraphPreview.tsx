@@ -43,14 +43,14 @@ export const ThreatGraphPreview: React.FC<Props> = ({ onOpenThreatGraph, onNodeS
             onClick={() => onNodeSelect?.('email', 'Email Payload')}
             className={`cursor-pointer transition-all duration-200 flex items-center gap-2 rounded-full border px-4 py-1.5 shadow-xs ${
               hoveredNode === 'email' || hoveredNode === null ? 'scale-105 shadow-md' : 'opacity-60'
-            } border-emerald-300 bg-emerald-50 text-emerald-800 font-bold text-xs`}
+            } border-blue-300 bg-blue-50 text-blue-800 font-bold text-xs`}
           >
-            <Mail className="h-3.5 w-3.5 text-emerald-600" />
+            <Mail className="h-3.5 w-3.5 text-blue-600" />
             <span>📧 Email (INV-2026-00482)</span>
           </div>
 
           {/* Connector 1 */}
-          <div className="h-4 w-0.5 bg-gradient-to-b from-emerald-400 to-indigo-400 my-1" />
+          <div className="h-4 w-0.5 bg-gradient-to-b from-blue-500 to-indigo-400 my-1" />
 
           {/* Node 2: Domain */}
           <div

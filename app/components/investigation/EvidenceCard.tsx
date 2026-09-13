@@ -97,7 +97,7 @@ export const EvidenceCard: React.FC<Props> = ({ evidence, onVerify, onViewDetail
           <button
             onClick={handleRunVerify}
             disabled={verifying}
-            className="flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 px-4 py-3 text-xs font-bold text-white shadow-md shadow-emerald-500/20 hover:from-emerald-700 hover:to-teal-700 transition-all disabled:opacity-75"
+            className="flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-3 text-xs font-bold text-white shadow-md shadow-blue-500/25 hover:from-blue-700 hover:to-indigo-700 transition-all disabled:opacity-75"
           >
             {verifying ? (
               <>
