@@ -23,7 +23,7 @@ export const AboutSettings: React.FC = () => {
   const techStack = [
     { name: 'Next.js 16', desc: 'React 19 App Router & Server Actions' },
     { name: 'MySQL', desc: 'Relational Case Data & Evidence Store' },
-    { name: 'Python AI/ML', desc: 'FastAPI / PyTorch Threat Classifier' },
+    { name: 'Python AI/ML', desc: 'PyTorch Threat Classifier' },
     { name: 'SHAP / LIME', desc: 'Explainable AI Feature Attribution' },
     { name: 'Neo4j / NetworkX', desc: 'Graph Threat Relationship Correlation' },
     { name: 'VirusTotal', desc: 'Multi-AV Engine File & URL Sandboxing' },
