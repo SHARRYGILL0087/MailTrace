@@ -3,7 +3,6 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Search, Bell, HelpCircle, ChevronDown } from 'lucide-react';
 import { ThreatShieldLogo } from '@/app/components/ui/ThreatShieldLogo';
 
 export const Navbar: React.FC = () => {
@@ -58,31 +57,11 @@ export const Navbar: React.FC = () => {
         </nav>
 
 
-        {/* Right Status & Controls */}
-        <div className="flex items-center gap-3">
+        {/* Right Status */}
+        <div className="flex items-center">
           <div className="hidden sm:flex items-center gap-2 rounded-full border border-emerald-200/80 bg-emerald-50/70 px-3 py-1 text-xs font-medium text-emerald-800">
             <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
             System Operational
-          </div>
-
-          <div className="flex items-center gap-1 border-l border-slate-200 pl-3">
-            <button aria-label="Search" className="flex h-9 w-9 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 transition-colors">
-              <Search className="h-4 w-4" />
-            </button>
-            <button aria-label="Notifications" className="relative flex h-9 w-9 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 transition-colors">
-              <Bell className="h-4 w-4" />
-              <span className="absolute top-2 right-2 h-1.5 w-1.5 rounded-full bg-blue-600" />
-            </button>
-            <button aria-label="Help" className="flex h-9 w-9 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 transition-colors">
-              <HelpCircle className="h-4 w-4" />
-            </button>
-          </div>
-
-          <div className="flex items-center gap-2 border-l border-slate-200 pl-3 cursor-pointer">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-xs font-bold text-slate-700 border border-slate-200">
-              IR
-            </div>
-            <ChevronDown className="h-3.5 w-3.5 text-slate-400" />
           </div>
         </div>
 
