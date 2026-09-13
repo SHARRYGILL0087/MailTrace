@@ -13,8 +13,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Suraksha Shield — AI-Powered Email Threat Forensics & Intelligence Platform",
-  description: "Suraksha Shield combines AI threat detection, email header forensics, infrastructure intelligence, and threat correlation in one unified platform.",
+  title: "Threat Shield — AI-Powered Email Threat Forensics & Intelligence Platform",
+  description: "Threat Shield combines AI threat detection, email header forensics, infrastructure intelligence, and threat correlation in one unified platform.",
+  icons: {
+    icon: '/threat-shield-logo.svg',
+    shortcut: '/threat-shield-logo.svg',
+    apple: '/threat-shield-logo.svg',
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

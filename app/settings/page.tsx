@@ -226,7 +226,7 @@ function SettingsContent() {
               </h1>
             </div>
             <p className="text-xs text-slate-500 max-w-2xl pl-13">
-              Manage your Suraksha Shield preferences, integrations and security settings.
+              Manage your Threat Shield preferences, integrations and security settings.
             </p>
           </div>
 

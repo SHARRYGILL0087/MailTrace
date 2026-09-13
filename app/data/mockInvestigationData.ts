@@ -297,7 +297,7 @@ export const MOCK_INVESTIGATION_DATA: InvestigationData = {
   },
   timeline: [
     { time: '10:32:19', event: 'Email received at perimeter mail gateway', icon: 'Inbox' },
-    { time: '10:33:02', event: 'Automated Suraksha Shield forensic analysis started', icon: 'Sparkles' },
+    { time: '10:33:02', event: 'Automated Threat Shield forensic analysis started', icon: 'Sparkles' },
     { time: '10:33:05', event: 'Authentication anomaly detected (SPF & DMARC fail)', icon: 'ShieldAlert' },
     { time: '10:33:07', event: 'Suspicious newly registered domain identified (12 days old)', icon: 'Globe' },
     { time: '10:33:09', event: 'IP 185.220.101.5 reputation checked against threat feeds', icon: 'Server' },

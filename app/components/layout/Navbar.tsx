@@ -3,7 +3,8 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ShieldCheck, Search, Bell, HelpCircle, ChevronDown } from 'lucide-react';
+import { Search, Bell, HelpCircle, ChevronDown } from 'lucide-react';
+import { ThreatShieldLogo } from '@/app/components/ui/ThreatShieldLogo';
 
 export const Navbar: React.FC = () => {
   const pathname = usePathname();
@@ -23,12 +24,14 @@ export const Navbar: React.FC = () => {
         
         {/* Left Identity */}
         <Link href="/" className="flex items-center gap-3 group cursor-pointer">
-          <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-tr from-emerald-600 via-teal-600 to-cyan-500 text-white shadow-sm shadow-emerald-500/25 group-hover:scale-105 transition-transform">
-            <ShieldCheck className="h-5 w-5" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-tr from-blue-600 via-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/25 group-hover:scale-105 group-hover:shadow-blue-500/35 transition-all">
+            <ThreatShieldLogo size={24} variant="on-blue" />
           </div>
-          <div className="flex items-center gap-1.5">
-            <span className="text-base font-bold tracking-tight text-slate-900">Suraksha Shield</span>
-            <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-bold text-emerald-700 border border-emerald-100">
+          <div className="flex items-center gap-2">
+            <span className="text-base font-black tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors">
+              Threat Shield
+            </span>
+            <span className="rounded-full bg-blue-50 px-2.5 py-0.5 text-[11px] font-bold text-blue-700 border border-blue-200/80 shadow-2xs">
               AI
             </span>
           </div>

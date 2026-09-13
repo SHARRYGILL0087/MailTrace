@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Mail, ArrowRight, BrainCircuit, Search, Globe2, Share2 } from 'lucide-react';
+import { ThreatShieldLogo } from '@/app/components/ui/ThreatShieldLogo';
 
 export const HeroBanner: React.FC = () => {
   return (
@@ -9,14 +10,15 @@ export const HeroBanner: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
         
         <div className="lg:col-span-7 space-y-3">
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/80 bg-blue-100/50 px-3 py-0.5 text-[11px] font-bold text-blue-700">
-            Forensic Engine v4.2 Active
+          <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/90 bg-blue-50/90 px-3.5 py-1 text-[11px] font-bold text-blue-700 shadow-2xs">
+            <ThreatShieldLogo size={16} variant="blue" />
+            <span>Threat Shield Forensic Engine v4.2 Active</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">
             Detect. Trace. Investigate.
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 max-w-xl leading-relaxed">
-            Suraksha Shield combines AI-powered threat detection, email header forensics, infrastructure intelligence, geolocation and threat correlation in one investigation platform.
+            Threat Shield combines AI-powered threat detection, email header forensics, infrastructure intelligence, geolocation and threat correlation in one investigation platform.
           </p>
           <div className="flex flex-wrap items-center gap-3 pt-1">
             <button className="flex items-center gap-2 rounded-2xl bg-blue-600 px-5 py-2.5 text-xs font-semibold text-white shadow-sm shadow-blue-500/20 hover:bg-blue-700 transition-all hover:scale-[1.01] active:scale-[0.99]">

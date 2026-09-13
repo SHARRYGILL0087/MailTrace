@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { 
-  ShieldCheck, 
   Info, 
   Layers, 
   Code2, 
@@ -15,6 +14,7 @@ import {
   X,
   Share2
 } from 'lucide-react';
+import { ThreatShieldLogo } from '@/app/components/ui/ThreatShieldLogo';
 
 export const AboutSettings: React.FC = () => {
   const [isDocsOpen, setIsDocsOpen] = useState(false);
@@ -39,7 +39,7 @@ export const AboutSettings: React.FC = () => {
         <div>
           <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
             <Info className="h-4 w-4 text-emerald-600" />
-            <span>About Suraksha Shield</span>
+            <span>About Threat Shield</span>
           </h2>
           <p className="text-xs text-slate-500 mt-0.5">
             System build details, architectural specifications, and platform telemetry
@@ -52,16 +52,16 @@ export const AboutSettings: React.FC = () => {
       </div>
 
       {/* Hero Banner Box */}
-      <div className="rounded-2xl border border-slate-200/80 bg-gradient-to-tr from-slate-50 via-white to-emerald-50/30 p-6 space-y-3">
+      <div className="rounded-2xl border border-slate-200/80 bg-gradient-to-tr from-slate-50 via-white to-blue-50/30 p-6 space-y-3">
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <div className="flex items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-tr from-emerald-600 via-teal-600 to-cyan-500 text-white shadow-md shadow-emerald-500/25">
-              <ShieldCheck className="h-6 w-6" />
+          <div className="flex items-center gap-3.5">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-tr from-blue-600 via-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/25">
+              <ThreatShieldLogo size={36} variant="on-blue" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h3 className="text-lg font-black text-slate-900 tracking-tight">Suraksha Shield</h3>
-                <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-bold text-emerald-800">
+                <h3 className="text-lg font-black text-slate-900 tracking-tight">Threat Shield</h3>
+                <span className="rounded-full bg-blue-50 px-2.5 py-0.5 text-[10px] font-bold text-blue-700 border border-blue-200/80">
                   SIH PS 26106
                 </span>
               </div>
@@ -146,7 +146,7 @@ export const AboutSettings: React.FC = () => {
             <div className="flex items-center justify-between pb-3 border-b border-slate-100">
               <div className="flex items-center gap-2">
                 <BookOpen className="h-4 w-4 text-emerald-600" />
-                <h3 className="text-sm font-bold text-slate-900">Suraksha Shield Documentation Reference</h3>
+                <h3 className="text-sm font-bold text-slate-900">Threat Shield Documentation Reference</h3>
               </div>
               <button
                 type="button"

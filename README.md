@@ -1,8 +1,8 @@
-# Suraksha Shield 🛡️
+# Threat Shield 🛡️
 
 **AI-Powered Email Threat Forensics & Intelligence Platform**
 
-Suraksha Shield combines AI threat detection, email header forensics, infrastructure intelligence, IP geolocation, and interactive threat correlation in one unified cyber-defense platform designed for Security Operations Centers (SOC) and cyber-forensic analysts.
+Threat Shield combines AI threat detection, email header forensics, infrastructure intelligence, IP geolocation, and interactive threat correlation in one unified cyber-defense platform designed for Security Operations Centers (SOC) and cyber-forensic analysts.
 
 ## Key Features
 

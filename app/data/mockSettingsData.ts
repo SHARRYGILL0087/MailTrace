@@ -2,7 +2,7 @@ import { FullSettings, ThreatIntelIntegration, LoginActivityItem } from '@/app/t
 
 export const INITIAL_SETTINGS: FullSettings = {
   general: {
-    appName: 'Suraksha Shield',
+    appName: 'Threat Shield',
     timezone: 'Asia/Kolkata (IST)',
     dateFormat: 'DD/MM/YYYY',
     theme: 'Light',
