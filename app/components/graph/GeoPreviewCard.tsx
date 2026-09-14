@@ -13,7 +13,7 @@ export const GeoPreviewCard: React.FC = () => {
   ];
 
   return (
-    <div className="rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm flex flex-col justify-between">
+    <div className="rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm flex flex-col justify-between h-full flex-1">
       <div>
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">

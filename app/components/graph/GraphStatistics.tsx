@@ -18,25 +18,27 @@ export const GraphStatistics: React.FC = () => {
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-full flex-1">
       
       {/* Threat Nodes Distribution */}
-      <div className="rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm">
-        <div className="flex items-center gap-2 mb-4">
-          <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-rose-50 text-rose-600 border border-rose-100">
-            <PieChart className="h-4 w-4" />
+      <div className="rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm flex flex-col justify-between h-full">
+        <div>
+          <div className="flex items-center gap-2 mb-4">
+            <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-rose-50 text-rose-600 border border-rose-100">
+              <PieChart className="h-4 w-4" />
+            </div>
+            <div>
+              <h3 className="text-sm font-bold text-slate-900">Threat Nodes Breakdown</h3>
+              <p className="text-xs text-slate-500">Distribution by threat classification</p>
+            </div>
           </div>
-          <div>
-            <h3 className="text-sm font-bold text-slate-900">Threat Nodes Breakdown</h3>
-            <p className="text-xs text-slate-500">Distribution by threat classification</p>
-          </div>
-        </div>
 
-        {/* Multi-segmented Progress Bar */}
-        <div className="h-3 w-full rounded-full bg-slate-100 flex overflow-hidden mb-4">
-          {threatTypes.map((t) => (
-            <div key={t.label} className={`${t.color} h-full`} style={{ width: `${t.percentage}%` }} />
-          ))}
+          {/* Multi-segmented Progress Bar */}
+          <div className="h-3 w-full rounded-full bg-slate-100 flex overflow-hidden mb-4">
+            {threatTypes.map((t) => (
+              <div key={t.label} className={`${t.color} h-full`} style={{ width: `${t.percentage}%` }} />
+            ))}
+          </div>
         </div>
 
         <div className="grid grid-cols-2 gap-3 text-xs">
@@ -53,22 +55,24 @@ export const GraphStatistics: React.FC = () => {
       </div>
 
       {/* Infrastructure Distribution */}
-      <div className="rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm">
-        <div className="flex items-center gap-2 mb-4">
-          <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 border border-blue-100">
-            <Server className="h-4 w-4" />
+      <div className="rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm flex flex-col justify-between h-full">
+        <div>
+          <div className="flex items-center gap-2 mb-4">
+            <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 border border-blue-100">
+              <Server className="h-4 w-4" />
+            </div>
+            <div>
+              <h3 className="text-sm font-bold text-slate-900">Infrastructure Distribution</h3>
+              <p className="text-xs text-slate-500">Hosting & network footprint breakdown</p>
+            </div>
           </div>
-          <div>
-            <h3 className="text-sm font-bold text-slate-900">Infrastructure Distribution</h3>
-            <p className="text-xs text-slate-500">Hosting & network footprint breakdown</p>
-          </div>
-        </div>
 
-        {/* Multi-segmented Progress Bar */}
-        <div className="h-3 w-full rounded-full bg-slate-100 flex overflow-hidden mb-4">
-          {infraTypes.map((t) => (
-            <div key={t.label} className={`${t.color} h-full`} style={{ width: `${t.percentage}%` }} />
-          ))}
+          {/* Multi-segmented Progress Bar */}
+          <div className="h-3 w-full rounded-full bg-slate-100 flex overflow-hidden mb-4">
+            {infraTypes.map((t) => (
+              <div key={t.label} className={`${t.color} h-full`} style={{ width: `${t.percentage}%` }} />
+            ))}
+          </div>
         </div>
 
         <div className="space-y-2 text-xs">

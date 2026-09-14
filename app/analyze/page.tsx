@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar } from '@/app/components/layout/Navbar';
 import { Sidebar } from '@/app/components/layout/Sidebar';
 import { AnalyzeHeader } from '@/app/components/analyze/AnalyzeHeader';
@@ -25,6 +25,21 @@ export default function AnalyzeEmailPage() {
   const [rawHeaders, setRawHeaders] = useState('');
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [analysisState, setAnalysisState] = useState<'idle' | 'analyzing' | 'success'>('idle');
+  const [autoBrowse, setAutoBrowse] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('browse') === 'true' || params.get('action') === 'browse') {
+        setActiveTab('upload');
+        setAnalysisState('idle');
+        setSelectedFile(null);
+        setDemoLoaded(false);
+        setAutoBrowse(true);
+        window.history.replaceState({}, '', window.location.pathname);
+      }
+    }
+  }, []);
 
   const [options, setOptions] = useState<AnalysisOptionsState>({
     threatDetection: true,
@@ -121,89 +136,83 @@ Authentication-Results: mx.enterprise-holdings.co; spf=fail (sender IP 185.220.1
               <ErrorAlert message={errorMsg} onDismiss={() => setErrorMsg(null)} />
             )}
 
-            {/* Main Interactive Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-              {/* Left Column: Analysis Workspace (8 cols) */}
-              <div className="lg:col-span-8 space-y-6">
-                <div className="rounded-3xl border border-slate-200/80 bg-white p-6 shadow-xs">
-                  {analysisState === 'analyzing' ? (
-                    <AnalysisProgress onComplete={() => setAnalysisState('success')} />
-                  ) : analysisState === 'success' ? (
-                    <AnalysisSuccess fileName={activeFileName} onReset={handleResetAnalysis} />
-                  ) : (
-                    /* IDLE STATE WORKSPACE */
-                    <div className="space-y-6">
-                      {/* Card Header & Tabs */}
-                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100">
-                        <div>
-                          <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
-                            <span>📧</span> Email Analysis
-                          </h3>
-                          <p className="text-xs text-slate-500 mt-0.5">
-                            Upload an .EML file or provide raw email headers for forensic analysis.
-                          </p>
-                        </div>
-                        <InputMethodTabs activeTab={activeTab} onTabChange={setActiveTab} />
+            {/* Analysis Workspace */}
+            <div className="w-full space-y-6">
+              <div className="rounded-3xl border border-slate-200/80 bg-white p-6 shadow-xs">
+                {analysisState === 'analyzing' ? (
+                  <AnalysisProgress onComplete={() => setAnalysisState('success')} />
+                ) : analysisState === 'success' ? (
+                  <AnalysisSuccess fileName={activeFileName} onReset={handleResetAnalysis} />
+                ) : (
+                  /* IDLE STATE WORKSPACE */
+                  <div className="space-y-6">
+                    {/* Card Header & Tabs */}
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100">
+                      <div>
+                        <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+                          <span>📧</span> Email Analysis
+                        </h3>
+                        <p className="text-xs text-slate-500 mt-0.5">
+                          Upload an .EML file or provide raw email headers for forensic analysis.
+                        </p>
                       </div>
-
-                      {/* Input Zone */}
-                      {activeTab === 'upload' ? (
-                        selectedFile || demoLoaded ? (
-                          <UploadedFileCard
-                            fileName={activeFileName}
-                            fileSize={activeFileSize}
-                            fileFormat="EML"
-                            onRemove={handleRemoveFile}
-                            onReplace={handleRemoveFile}
-                          />
-                        ) : (
-                          <EmailDropzone
-                            onFileSelected={handleFileSelect}
-                            onError={(err) => setErrorMsg(err)}
-                          />
-                        )
-                      ) : (
-                        <HeaderTextarea value={rawHeaders} onChange={setRawHeaders} />
-                      )}
-
-                      {/* Demo Email Trigger Option */}
-                      {!isInputReady && (
-                        <DemoEmailButton onLoadDemo={handleLoadDemo} />
-                      )}
-
-                      {/* Analysis Options Accordion */}
-                      <AnalysisOptions options={options} onOptionsChange={setOptions} />
-
-                      {/* Privacy Notice */}
-                      <PrivacyNotice />
-
-                      {/* Primary CTA Area */}
-                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2">
-                        <span className="text-[11px] font-semibold text-slate-400">
-                          Analysis usually takes a few seconds.
-                        </span>
-
-                        <button
-                          type="button"
-                          onClick={handleStartAnalysis}
-                          className={`flex items-center justify-center gap-2.5 rounded-2xl px-7 py-3 text-xs font-bold text-white shadow-md transition-all duration-200 ${
-                            isInputReady
-                              ? 'bg-gradient-to-r from-blue-600 to-indigo-600 shadow-blue-500/25 hover:from-blue-700 hover:to-indigo-700 hover:scale-[1.01] active:scale-[0.99]'
-                              : 'bg-blue-600/80 hover:bg-blue-600'
-                          }`}
-                        >
-                          <Search className="h-4 w-4 stroke-[2.5]" />
-                          Analyze Email
-                        </button>
-                      </div>
+                      <InputMethodTabs activeTab={activeTab} onTabChange={setActiveTab} />
                     </div>
-                  )}
-                </div>
-              </div>
 
-              {/* Right Column: Information & Capabilities (4 cols) */}
-              <div className="lg:col-span-4 space-y-6">
-                <AnalysisCapabilities />
+                    {/* Input Zone */}
+                    {activeTab === 'upload' ? (
+                      selectedFile || demoLoaded ? (
+                        <UploadedFileCard
+                          fileName={activeFileName}
+                          fileSize={activeFileSize}
+                          fileFormat="EML"
+                          onRemove={handleRemoveFile}
+                          onReplace={handleRemoveFile}
+                        />
+                      ) : (
+                        <EmailDropzone
+                          onFileSelected={handleFileSelect}
+                          onError={(err) => setErrorMsg(err)}
+                          autoBrowse={autoBrowse}
+                          onAutoBrowseHandled={() => setAutoBrowse(false)}
+                        />
+                      )
+                    ) : (
+                      <HeaderTextarea value={rawHeaders} onChange={setRawHeaders} />
+                    )}
+
+                    {/* Demo Email Trigger Option */}
+                    {!isInputReady && (
+                      <DemoEmailButton onLoadDemo={handleLoadDemo} />
+                    )}
+
+                    {/* Analysis Options Accordion */}
+                    <AnalysisOptions options={options} onOptionsChange={setOptions} />
+
+                    {/* Privacy Notice */}
+                    <PrivacyNotice />
+
+                    {/* Primary CTA Area */}
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2">
+                      <span className="text-[11px] font-semibold text-slate-400">
+                        Analysis usually takes a few seconds.
+                      </span>
+
+                      <button
+                        type="button"
+                        onClick={handleStartAnalysis}
+                        className={`flex items-center justify-center gap-2.5 rounded-2xl px-7 py-3 text-xs font-bold text-white shadow-md transition-all duration-200 ${
+                          isInputReady
+                            ? 'bg-gradient-to-r from-blue-600 to-indigo-600 shadow-blue-500/25 hover:from-blue-700 hover:to-indigo-700 hover:scale-[1.01] active:scale-[0.99]'
+                            : 'bg-blue-600/80 hover:bg-blue-600'
+                        }`}
+                      >
+                        <Search className="h-4 w-4 stroke-[2.5]" />
+                        Analyze Email
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 

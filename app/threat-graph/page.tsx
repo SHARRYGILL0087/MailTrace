@@ -27,11 +27,11 @@ export default function ThreatGraphPage() {
     nodeType: 'all',
     riskLevel: 'all',
     timeRange: '7d',
-    layoutMode: 'force',
+    layoutMode: 'radial',
     clusterView: false,
   });
 
-  const [selectedNode, setSelectedNode] = useState<ThreatNode | null>(INITIAL_NODES[0]); // default IP or Email selected
+  const [selectedNode, setSelectedNode] = useState<ThreatNode | null>(null); // default hidden, only shown when clicking a node
   const [activePath, setActivePath] = useState<PathSearchResult | null>(null);
 
   const handleFilterChange = (updates: Partial<GraphFilterState>) => {
@@ -44,7 +44,7 @@ export default function ThreatGraphPage() {
       nodeType: 'all',
       riskLevel: 'all',
       timeRange: '7d',
-      layoutMode: 'force',
+      layoutMode: 'radial',
       clusterView: false,
     });
     setSelectedNode(null);
@@ -173,11 +173,11 @@ export default function ThreatGraphPage() {
             <RelatedInvestigations />
 
             {/* 20 & 21. GRAPH STATISTICS & GEOLOCATION PREVIEW */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-              <div className="lg:col-span-7">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+              <div className="lg:col-span-7 flex flex-col">
                 <GraphStatistics />
               </div>
-              <div className="lg:col-span-5">
+              <div className="lg:col-span-5 flex flex-col">
                 <GeoPreviewCard />
               </div>
             </div>

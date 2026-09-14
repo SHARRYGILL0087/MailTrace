@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export const LocationGraphCard: React.FC = () => {
   return (
-    <div className="rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm flex flex-col justify-between">
+    <div className="rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm flex flex-col justify-between h-full flex-1">
       <div>
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
@@ -53,7 +53,7 @@ export const LocationGraphCard: React.FC = () => {
 
       <Link
         href="/threat-graph"
-        className="flex w-full items-center justify-center gap-2 rounded-2xl bg-indigo-600 py-2.5 text-xs font-bold text-white shadow-sm hover:bg-indigo-700 transition-all mt-2"
+        className="flex w-full items-center justify-center gap-2 rounded-2xl bg-indigo-600 py-2.5 text-xs font-bold text-white shadow-sm hover:bg-indigo-700 transition-all mt-auto"
       >
         <span>Open Threat Graph</span>
         <ArrowRight className="h-4 w-4" />

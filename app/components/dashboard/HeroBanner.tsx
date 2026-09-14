@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { Mail, ArrowRight, BrainCircuit, Search, Globe2, Share2 } from 'lucide-react';
 import { ThreatShieldLogo } from '@/app/components/ui/ThreatShieldLogo';
 
@@ -21,13 +22,19 @@ export const HeroBanner: React.FC = () => {
             Threat Shield combines AI-powered threat detection, email header forensics, infrastructure intelligence, geolocation and threat correlation in one investigation platform.
           </p>
           <div className="flex flex-wrap items-center gap-3 pt-1">
-            <button className="flex items-center gap-2 rounded-2xl bg-blue-600 px-5 py-2.5 text-xs font-semibold text-white shadow-sm shadow-blue-500/20 hover:bg-blue-700 transition-all hover:scale-[1.01] active:scale-[0.99]">
+            <Link
+              href="/analyze?browse=true"
+              className="flex items-center gap-2 rounded-2xl bg-blue-600 px-5 py-2.5 text-xs font-semibold text-white shadow-sm shadow-blue-500/20 hover:bg-blue-700 transition-all hover:scale-[1.01] active:scale-[0.99]"
+            >
               Analyze an Email
               <ArrowRight className="h-3.5 w-3.5" />
-            </button>
-            <button className="rounded-2xl border border-slate-200 bg-white px-5 py-2.5 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition-all">
+            </Link>
+            <Link
+              href="/threat-intelligence"
+              className="rounded-2xl border border-slate-200 bg-white px-5 py-2.5 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition-all"
+            >
               Explore Threat Intelligence
-            </button>
+            </Link>
           </div>
         </div>
 

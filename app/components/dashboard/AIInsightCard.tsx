@@ -5,7 +5,7 @@ import { Sparkles, ArrowRight } from 'lucide-react';
 
 export const AIInsightCard: React.FC = () => {
   return (
-    <div className="rounded-3xl border border-blue-100 bg-gradient-to-br from-blue-50/80 via-indigo-50/30 to-white p-6 shadow-xs">
+    <div className="rounded-3xl border border-blue-100 bg-gradient-to-br from-blue-50/80 via-indigo-50/30 to-white p-6 shadow-xs min-h-[365px]">
       <div className="flex items-center gap-2 text-blue-700">
         <Sparkles className="h-4 w-4" />
         <span className="text-xs font-bold uppercase tracking-wider">AI Security Insight</span>

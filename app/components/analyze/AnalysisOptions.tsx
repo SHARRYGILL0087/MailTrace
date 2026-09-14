@@ -62,7 +62,7 @@ export const AnalysisOptions: React.FC<AnalysisOptionsProps> = ({ options, onOpt
       </button>
 
       {isOpen && (
-        <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3 pt-3 border-t border-slate-200/60">
+        <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 pt-3 border-t border-slate-200/60">
           {optionItems.map((item) => {
             const isChecked = options[item.key];
             return (

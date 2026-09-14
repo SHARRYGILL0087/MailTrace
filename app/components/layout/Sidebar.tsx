@@ -10,8 +10,7 @@ import {
   BrainCircuit, 
   Share2, 
   Globe2, 
-  FileText, 
-  Settings 
+  FileText 
 } from 'lucide-react';
 
 const navigationRoutes = [
@@ -22,7 +21,6 @@ const navigationRoutes = [
   { icon: Share2, label: 'Threat Graph', href: '/threat-graph' },
   { icon: Globe2, label: 'Geolocation', href: '/geolocation' },
   { icon: FileText, label: 'Reports', href: '/reports' },
-  { icon: Settings, label: 'Settings', href: '/settings' },
 ];
 
 export const Sidebar: React.FC = () => {

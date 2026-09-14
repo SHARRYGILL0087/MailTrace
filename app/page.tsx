@@ -51,9 +51,9 @@ export default function Home() {
               </div>
               <div className="lg:col-span-4 space-y-6">
                 <AIInsightCard />
-                <InfrastructureMapPreview />
-                <ThreatGraphPreview />
-                <SecurityStatusCard />
+                {/* <InfrastructureMapPreview /> */}
+                {/* <ThreatGraphPreview /> */}
+                {/* <SecurityStatusCard /> */}
               </div>
             </div>
           </div>

@@ -1,16 +1,37 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Mail, Upload, AlertCircle } from 'lucide-react';
 
 interface EmailDropzoneProps {
   onFileSelected: (file: File) => void;
   onError: (errorMsg: string) => void;
+  autoBrowse?: boolean;
+  onAutoBrowseHandled?: () => void;
 }
 
-export const EmailDropzone: React.FC<EmailDropzoneProps> = ({ onFileSelected, onError }) => {
+export const EmailDropzone: React.FC<EmailDropzoneProps> = ({ 
+  onFileSelected, 
+  onError,
+  autoBrowse,
+  onAutoBrowseHandled 
+}) => {
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (autoBrowse) {
+      const timer = setTimeout(() => {
+        try {
+          fileInputRef.current?.click();
+        } catch (err) {
+          console.warn('Auto browse trigger:', err);
+        }
+        onAutoBrowseHandled?.();
+      }, 50);
+      return () => clearTimeout(timer);
+    }
+  }, [autoBrowse, onAutoBrowseHandled]);
 
   const validateAndProcessFile = (file: File) => {
     // Validate size (max 25MB)

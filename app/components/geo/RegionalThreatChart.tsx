@@ -12,7 +12,7 @@ export const RegionalThreatChart: React.FC = () => {
   ];
 
   return (
-    <div className="rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm flex flex-col justify-between">
+    <div className="rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm flex flex-col justify-between h-full flex-1">
       <div>
         <div className="flex items-center gap-2 mb-4">
           <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-cyan-50 text-cyan-600 border border-cyan-100">
@@ -24,9 +24,9 @@ export const RegionalThreatChart: React.FC = () => {
           </div>
         </div>
 
-        <div className="space-y-3.5 my-2">
+        <div className="space-y-4 my-3">
           {regions.map((r) => (
-            <div key={r.label} className="space-y-1">
+            <div key={r.label} className="space-y-1.5">
               <div className="flex justify-between text-xs font-bold text-slate-800">
                 <span>{r.label}</span>
                 <span>{r.percentage}%</span>
@@ -37,6 +37,11 @@ export const RegionalThreatChart: React.FC = () => {
             </div>
           ))}
         </div>
+      </div>
+
+      <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-semibold text-slate-500 mt-auto">
+        <span>Highest Threat Density</span>
+        <span className="font-bold text-cyan-700">Western Europe (42%)</span>
       </div>
     </div>
   );
