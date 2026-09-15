@@ -53,9 +53,16 @@ export async function POST(request: Request) {
       );
     }
 
-    // Role is strictly User
+    // Role retrieved from registration
     const username = record?.username || normalizedEmail.split('@')[0];
-    const role = 'User';
+    const validRoles = ['User', 'Analyst', 'Admin'];
+    const role = (record?.role && validRoles.includes(record.role)) ? record.role : 'User';
+
+    const roleDescMap: Record<string, string> = {
+      User: 'Basic Analysis',
+      Analyst: 'Full Investigation',
+      Admin: 'Platform Management',
+    };
 
     // Clear OTP after successful consumption
     otpStore.delete(normalizedEmail);
@@ -67,7 +74,7 @@ export async function POST(request: Request) {
         username,
         email: normalizedEmail,
         role,
-        roleDescription: 'Basic Analysis',
+        roleDescription: roleDescMap[role] || 'Basic Analysis',
         createdAt: new Date().toISOString(),
       },
     });

@@ -3,15 +3,18 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { CheckCircle2, ArrowRight, ShieldCheck, User, Mail, Sparkles } from 'lucide-react';
+import { UserRole, ROLE_CONFIGS } from '@/app/types/auth';
 
 interface SignupSuccessCardProps {
   email: string;
   username: string;
+  role?: UserRole;
 }
 
 export const SignupSuccessCard: React.FC<SignupSuccessCardProps> = ({
   email,
   username,
+  role = 'User',
 }) => {
   const router = useRouter();
   const [redirectCountdown, setRedirectCountdown] = useState<number>(5);
@@ -32,6 +35,8 @@ export const SignupSuccessCard: React.FC<SignupSuccessCardProps> = ({
   const handleContinue = () => {
     router.push('/login');
   };
+
+  const roleConfig = ROLE_CONFIGS[role] || ROLE_CONFIGS.User;
 
   return (
     <div className="w-full max-w-md rounded-3xl border border-emerald-200/80 bg-gradient-to-b from-emerald-50/40 via-white to-slate-50/30 p-6 sm:p-8 shadow-sm backdrop-blur-xs text-center space-y-6 animate-in fade-in zoom-in-95 duration-300">
@@ -77,8 +82,8 @@ export const SignupSuccessCard: React.FC<SignupSuccessCardProps> = ({
         <div className="flex items-center gap-2.5 text-xs pt-1 border-t border-slate-100">
           <ShieldCheck className="h-4 w-4 text-blue-600 shrink-0" />
           <span className="text-slate-500 font-medium">Assigned Role:</span>
-          <span className="rounded-md bg-blue-50 px-2 py-0.5 text-[11px] font-bold text-blue-700 border border-blue-200/60">
-            User (Basic Analysis)
+          <span className={`rounded-md px-2 py-0.5 text-[11px] font-bold border ${roleConfig.badgeBg} ${roleConfig.badgeText} ${roleConfig.badgeBorder}`}>
+            {roleConfig.label} ({roleConfig.description})
           </span>
         </div>
       </div>
@@ -87,7 +92,7 @@ export const SignupSuccessCard: React.FC<SignupSuccessCardProps> = ({
       <div className="flex items-start gap-2.5 rounded-2xl bg-blue-50/60 border border-blue-100 p-3 text-left">
         <Sparkles className="h-4 w-4 text-blue-600 shrink-0 mt-0.5" />
         <p className="text-[11px] text-blue-900/80 leading-relaxed font-medium">
-          New accounts begin with <strong>Basic Analysis</strong> permissions. SOC Administrators can elevate your role to <strong>Analyst</strong> or <strong>Admin</strong> anytime.
+          Logged in with <strong>{roleConfig.label}</strong> permissions ({roleConfig.description}). You can switch or test roles anytime from the top navigation bar.
         </p>
       </div>
 

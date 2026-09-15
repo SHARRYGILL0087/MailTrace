@@ -15,6 +15,7 @@ export default function SignupPage() {
   const [step, setStep] = useState<SignupStep>('signup');
   const [registeredEmail, setRegisteredEmail] = useState<string>('');
   const [registeredUsername, setRegisteredUsername] = useState<string>('');
+  const [registeredRole, setRegisteredRole] = useState<'User' | 'Analyst' | 'Admin'>('User');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [serverError, setServerError] = useState<string | null>(null);
 
@@ -28,11 +29,13 @@ export default function SignupPage() {
         username: formData.username,
         email: formData.email,
         password: formData.password,
+        role: formData.role,
       });
 
       if (result.success) {
         setRegisteredEmail(result.email || formData.email);
         setRegisteredUsername(formData.username);
+        setRegisteredRole(result.role || formData.role || 'User');
         setStep('otp');
       } else {
         setServerError(result.message || 'Signup failed. Please try again.');
@@ -155,6 +158,7 @@ export default function SignupPage() {
             <SignupSuccessCard
               email={registeredEmail}
               username={registeredUsername}
+              role={registeredRole}
             />
           )}
         </div>

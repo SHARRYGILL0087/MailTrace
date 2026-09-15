@@ -20,11 +20,14 @@ import {
   LogIn,
   Sparkles,
   Shield,
+  ShieldCheck,
   FileText,
   Mail,
   ArrowRight
 } from 'lucide-react';
 import { ThreatShieldLogo } from '@/app/components/ui/ThreatShieldLogo';
+import { ROLE_CONFIGS, UserRole, UserSession } from '@/app/types/auth';
+import { authService } from '@/app/services/authService';
 
 export const Navbar: React.FC = () => {
   const router = useRouter();
@@ -37,6 +40,38 @@ export const Navbar: React.FC = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [hasUnread, setHasUnread] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
+
+  // Active user session & role
+  const [session, setSession] = useState<UserSession>({
+    username: 'Incident Responder',
+    email: 'analyst@mailtrace.cyber',
+    role: 'Analyst',
+  });
+
+  useEffect(() => {
+    const current = authService.getSession();
+    if (current) {
+      setSession(current);
+    }
+
+    const handleAuthChange = (e: Event) => {
+      const customEvent = e as CustomEvent<UserSession | null>;
+      if (customEvent.detail) {
+        setSession(customEvent.detail);
+      } else {
+        setSession({
+          username: 'Incident Responder',
+          email: 'analyst@mailtrace.cyber',
+          role: 'Analyst',
+        });
+      }
+    };
+
+    window.addEventListener('mailtrace:auth-changed', handleAuthChange);
+    return () => window.removeEventListener('mailtrace:auth-changed', handleAuthChange);
+  }, []);
+
+  const activeRoleConfig = ROLE_CONFIGS[session.role] || ROLE_CONFIGS.Analyst;
 
   // Refs for click outside
   const notificationsRef = useRef<HTMLDivElement>(null);
@@ -347,6 +382,16 @@ export const Navbar: React.FC = () => {
               <span>Login</span>
             </Link>
 
+            {/* Active Role Badge in Navbar */}
+            <div 
+              id="navbar-active-role-badge"
+              title={`Current Tier: ${activeRoleConfig.label} (${activeRoleConfig.description})`}
+              className={`hidden sm:flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-bold border transition-all ${activeRoleConfig.badgeBg} ${activeRoleConfig.badgeText} ${activeRoleConfig.badgeBorder} shadow-2xs`}
+            >
+              <ShieldCheck className="h-3 w-3 shrink-0" />
+              <span>{activeRoleConfig.label}</span>
+            </div>
+
             {/* 4. Avatar (IR) with Dropdown Chevron */}
             <div className="relative" ref={profileRef}>
               <button
@@ -360,9 +405,9 @@ export const Navbar: React.FC = () => {
                 className="group flex items-center gap-1.5 rounded-full p-0.5 hover:bg-slate-100/70 transition-colors cursor-pointer"
                 title="User Profile & Settings"
               >
-                {/* Circle Avatar with IR */}
+                {/* Circle Avatar with Initials */}
                 <div className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 border border-slate-200/80 text-xs font-bold text-slate-800 shadow-2xs group-hover:border-slate-300 transition-colors">
-                  IR
+                  {session.username ? session.username.slice(0, 2).toUpperCase() : 'IR'}
                 </div>
 
                 {/* Dropdown Chevron */}
@@ -376,12 +421,47 @@ export const Navbar: React.FC = () => {
                   <div className="px-3 py-2.5 rounded-xl bg-slate-50 border border-slate-100 mb-2">
                     <div className="flex items-center gap-2.5">
                       <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-white text-xs font-bold shadow-xs">
-                        IR
+                        {session.username ? session.username.slice(0, 2).toUpperCase() : 'IR'}
                       </div>
-                      <div className="min-w-0">
-                        <p className="text-xs font-bold text-slate-900 truncate">Incident Responder</p>
-                        <p className="text-[10px] font-medium text-slate-500 truncate">Tier-2 Forensics Lead</p>
+                      <div className="min-w-0 flex-1">
+                        <p className="text-xs font-bold text-slate-900 truncate">{session.username}</p>
+                        <div className="flex items-center gap-1 mt-0.5">
+                          <span className={`rounded px-1.5 py-0.2 text-[9px] font-bold border ${activeRoleConfig.badgeBg} ${activeRoleConfig.badgeText} ${activeRoleConfig.badgeBorder}`}>
+                            {activeRoleConfig.label}
+                          </span>
+                          <span className="text-[10px] font-medium text-slate-400 truncate">{activeRoleConfig.description}</span>
+                        </div>
                       </div>
+                    </div>
+                  </div>
+
+                  {/* Role Switcher in Dropdown */}
+                  <div className="px-2.5 py-2 bg-slate-50/70 rounded-xl border border-slate-100 mb-2 space-y-1.5">
+                    <div className="flex items-center justify-between text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                      <span>Active Role</span>
+                      <span className="text-blue-600 font-semibold lowercase">switch</span>
+                    </div>
+                    <div className="grid grid-cols-3 gap-1">
+                      {(['User', 'Analyst', 'Admin'] as const).map((r) => {
+                        const isCurrent = session.role === r;
+                        return (
+                          <button
+                            key={r}
+                            id={`navbar-switch-role-${r.toLowerCase()}`}
+                            type="button"
+                            onClick={() => {
+                              authService.setSession({ ...session, role: r });
+                            }}
+                            className={`py-1 text-[10px] font-bold rounded-lg border transition-all cursor-pointer ${
+                              isCurrent
+                                ? 'bg-blue-600 text-white border-blue-600 shadow-2xs'
+                                : 'bg-white border-slate-200/80 text-slate-600 hover:bg-slate-100 hover:border-slate-300'
+                            }`}
+                          >
+                            {r}
+                          </button>
+                        );
+                      })}
                     </div>
                   </div>
 
@@ -422,6 +502,7 @@ export const Navbar: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => {
+                      authService.clearSession();
                       setIsProfileOpen(false);
                       router.push('/login');
                     }}

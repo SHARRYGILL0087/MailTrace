@@ -1,13 +1,63 @@
-import { SignupRequest, SignupResponse, VerifyOtpRequest, VerifyOtpResponse, ResendOtpResponse } from '@/app/types/auth';
+import { 
+  SignupRequest, 
+  SignupResponse, 
+  VerifyOtpRequest, 
+  VerifyOtpResponse, 
+  ResendOtpResponse, 
+  UserRole, 
+  UserSession 
+} from '@/app/types/auth';
+
+const STORAGE_KEY = 'mailtrace_user_session';
 
 /**
  * MailTrace AI Authentication Service Layer
- * Connects frontend flows to Next.js auth routes with mock resilience.
+ * Connects frontend flows to Next.js auth routes with mock resilience and role persistence.
  */
 export const authService = {
   /**
+   * Retrieve active session from localStorage
+   */
+  getSession(): UserSession | null {
+    if (typeof window === 'undefined') return null;
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (!stored) return null;
+      return JSON.parse(stored);
+    } catch {
+      return null;
+    }
+  },
+
+  /**
+   * Save user session and notify listeners
+   */
+  setSession(session: UserSession): void {
+    if (typeof window === 'undefined') return;
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(session));
+      window.dispatchEvent(new CustomEvent('mailtrace:auth-changed', { detail: session }));
+    } catch {
+      // ignore
+    }
+  },
+
+  /**
+   * Clear active user session
+   */
+  clearSession(): void {
+    if (typeof window === 'undefined') return;
+    try {
+      localStorage.removeItem(STORAGE_KEY);
+      window.dispatchEvent(new CustomEvent('mailtrace:auth-changed', { detail: null }));
+    } catch {
+      // ignore
+    }
+  },
+
+  /**
    * Submit registration details
-   * Sends POST /api/auth/signup with { username, email, password }
+   * Sends POST /api/auth/signup with { username, email, password, role }
    */
   async signup(payload: SignupRequest): Promise<SignupResponse> {
     try {
@@ -36,7 +86,7 @@ export const authService = {
         success: true,
         message: 'Verification code sent to your email address.',
         email: payload.email,
-        role: 'User',
+        role: payload.role || 'User',
       };
     }
   },
@@ -65,19 +115,34 @@ export const authService = {
         };
       }
 
+      if (data.success && data.user) {
+        this.setSession({
+          username: data.user.username,
+          email: data.user.email,
+          role: data.user.role as UserRole,
+        });
+      }
+
       return data;
     } catch {
       // Mock resilience fallback
+      const fallbackUser = {
+        username: payload.email.split('@')[0],
+        email: payload.email,
+        role: 'User' as UserRole,
+        roleDescription: 'Basic Analysis',
+        createdAt: new Date().toISOString(),
+      };
+      this.setSession({
+        username: fallbackUser.username,
+        email: fallbackUser.email,
+        role: fallbackUser.role,
+      });
+
       return {
         success: true,
         message: 'Email verified successfully.',
-        user: {
-          username: payload.email.split('@')[0],
-          email: payload.email,
-          role: 'User',
-          roleDescription: 'Basic Analysis',
-          createdAt: new Date().toISOString(),
-        },
+        user: fallbackUser,
       };
     }
   },

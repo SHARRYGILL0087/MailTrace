@@ -12,10 +12,13 @@ import {
   Loader2, 
   ShieldCheck, 
   AlertCircle,
-  CheckCircle2
+  CheckCircle2,
+  Shield,
+  ShieldAlert,
+  Check
 } from 'lucide-react';
 import { ThreatShieldLogo } from '@/app/components/ui/ThreatShieldLogo';
-import { SignupFormData, SignupFormErrors } from '@/app/types/auth';
+import { SignupFormData, SignupFormErrors, UserRole, ROLE_CONFIGS } from '@/app/types/auth';
 
 interface SignupCardProps {
   onSubmit: (data: SignupFormData) => Promise<void>;
@@ -36,6 +39,7 @@ export const SignupCard: React.FC<SignupCardProps> = ({
     password: '',
     confirmPassword: '',
     agreeTerms: false,
+    role: 'User',
   });
 
   const [errors, setErrors] = useState<SignupFormErrors>({});
@@ -43,7 +47,7 @@ export const SignupCard: React.FC<SignupCardProps> = ({
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   // Field change handler with instant error clearing
-  const handleChange = (field: keyof SignupFormData, value: string | boolean) => {
+  const handleChange = (field: keyof SignupFormData, value: string | boolean | UserRole) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
     if (errors[field]) {
       setErrors((prev) => ({ ...prev, [field]: undefined }));
@@ -105,6 +109,8 @@ export const SignupCard: React.FC<SignupCardProps> = ({
     await onSubmit(formData);
   };
 
+  const currentRoleConfig = ROLE_CONFIGS[formData.role];
+
   return (
     <div className="w-full max-w-md rounded-3xl border border-slate-200/80 bg-white p-6 sm:p-8 shadow-sm backdrop-blur-xs">
       
@@ -135,10 +141,10 @@ export const SignupCard: React.FC<SignupCardProps> = ({
           </p>
         </div>
 
-        {/* Security Zero-Trust Badge */}
-        <div className="inline-flex items-center gap-1.5 rounded-full border border-blue-200/80 bg-blue-50/70 px-3 py-1 text-[11px] font-bold text-blue-800">
-          <ShieldCheck className="h-3.5 w-3.5 text-blue-600" />
-          <span>SOC Identity • Role: User (Basic Analysis)</span>
+        {/* Dynamic Security Role Badge */}
+        <div className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-[11px] font-bold transition-all ${currentRoleConfig.badgeBg} ${currentRoleConfig.badgeText} ${currentRoleConfig.badgeBorder}`}>
+          <ShieldCheck className="h-3.5 w-3.5" />
+          <span>Assigned Role: {currentRoleConfig.label} ({currentRoleConfig.description})</span>
         </div>
       </div>
 
@@ -303,7 +309,49 @@ export const SignupCard: React.FC<SignupCardProps> = ({
           )}
         </div>
 
-        {/* 5. Terms & Conditions checkbox */}
+        {/* 5. Role Choose Option */}
+        <div className="space-y-1.5 pt-1">
+          <label className="block text-xs font-bold text-slate-800">
+            Choose Your Role
+          </label>
+          <p className="text-[11px] text-slate-400">
+            Select your primary operations tier for MailTrace AI.
+          </p>
+          <div className="grid grid-cols-3 gap-2 pt-1">
+            {(['User', 'Analyst', 'Admin'] as const).map((r) => {
+              const isSelected = formData.role === r;
+              const configs = {
+                User: { icon: Shield, subtitle: 'Basic Analysis' },
+                Analyst: { icon: ShieldAlert, subtitle: 'Full Investigation' },
+                Admin: { icon: ShieldCheck, subtitle: 'Platform Admin' },
+              }[r];
+              const Icon = configs.icon;
+
+              return (
+                <button
+                  key={r}
+                  id={`signup-role-${r.toLowerCase()}-btn`}
+                  type="button"
+                  onClick={() => handleChange('role', r)}
+                  className={`flex flex-col items-start p-2.5 rounded-2xl border text-left transition-all cursor-pointer ${
+                    isSelected
+                      ? 'border-blue-400 bg-blue-50/70 text-blue-900 shadow-2xs ring-2 ring-blue-500/10'
+                      : 'border-slate-200 bg-slate-50/60 text-slate-600 hover:bg-slate-100 hover:border-slate-300'
+                  }`}
+                >
+                  <div className="flex w-full items-center justify-between">
+                    <Icon className={`h-4 w-4 ${isSelected ? 'text-blue-600' : 'text-slate-400'}`} />
+                    {isSelected && <Check className="h-3 w-3 text-blue-600" />}
+                  </div>
+                  <span className="mt-1.5 text-xs font-bold text-slate-900">{r}</span>
+                  <span className="text-[10px] text-slate-400 font-medium leading-tight">{configs.subtitle}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* 6. Terms & Conditions checkbox */}
         <div className="pt-1">
           <label className="flex items-start gap-2.5 cursor-pointer select-none">
             <input
@@ -329,7 +377,7 @@ export const SignupCard: React.FC<SignupCardProps> = ({
           )}
         </div>
 
-        {/* 6. Primary Button: Create Account */}
+        {/* 7. Primary Button: Create Account */}
         <div className="pt-2">
           <button
             id="signup-submit-btn"
@@ -351,7 +399,7 @@ export const SignupCard: React.FC<SignupCardProps> = ({
           </button>
         </div>
 
-        {/* 7. Below Button: Already have an account? Login */}
+        {/* 8. Below Button: Already have an account? Login */}
         <div className="pt-2 text-center text-xs text-slate-500">
           Already have an account?{' '}
           <Link
@@ -369,9 +417,9 @@ export const SignupCard: React.FC<SignupCardProps> = ({
       <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400">
         <div className="flex items-center gap-1.5">
           <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" />
-          <span>Strict Zero-Trust RBAC Policy</span>
+          <span>Zero-Trust Role-Based Access Control</span>
         </div>
-        <span className="font-semibold text-slate-500">Tier: User</span>
+        <span className="font-semibold text-slate-600">Selected Tier: {formData.role}</span>
       </div>
 
     </div>

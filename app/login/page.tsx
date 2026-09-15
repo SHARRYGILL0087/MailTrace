@@ -2,20 +2,48 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { Navbar } from '@/app/components/layout/Navbar';
 import { ThreatShieldLogo } from '@/app/components/ui/ThreatShieldLogo';
-import { Mail, Lock, Eye, EyeOff, ArrowRight, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { 
+  Mail, 
+  Lock, 
+  Eye, 
+  EyeOff, 
+  ArrowRight, 
+  ShieldCheck, 
+  CheckCircle2, 
+  Shield, 
+  ShieldAlert, 
+  Check 
+} from 'lucide-react';
+import { UserRole, ROLE_CONFIGS } from '@/app/types/auth';
+import { authService } from '@/app/services/authService';
 
 export default function LoginPage() {
+  const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [role, setRole] = useState<UserRole>('Analyst');
   const [showPassword, setShowPassword] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const cleanUsername = email.split('@')[0] || 'Analyst';
+    const cleanEmail = email || `${cleanUsername.toLowerCase()}@mailtrace.cyber`;
+
+    // Persist session with chosen role
+    authService.setSession({
+      username: cleanUsername,
+      email: cleanEmail,
+      role,
+    });
+
     setIsSubmitted(true);
   };
+
+  const currentRoleConfig = ROLE_CONFIGS[role];
 
   return (
     <div className="min-h-screen bg-[#F8FAFC] pb-16 relative overflow-hidden">
@@ -55,35 +83,40 @@ export default function LoginPage() {
                 Welcome back
               </h1>
               <p className="mt-1 text-xs text-slate-500 max-w-xs mx-auto leading-relaxed">
-                Enter your credentials to access the SOC email threat console.
+                Enter your credentials and select your authorization role.
               </p>
             </div>
 
-            <div className="inline-flex items-center gap-1.5 rounded-full border border-blue-200/80 bg-blue-50/70 px-3 py-1 text-[11px] font-bold text-blue-800">
-              <ShieldCheck className="h-3.5 w-3.5 text-blue-600" />
-              <span>Zero-Trust Enterprise Authentication</span>
+            <div className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-[11px] font-bold transition-all ${currentRoleConfig.badgeBg} ${currentRoleConfig.badgeText} ${currentRoleConfig.badgeBorder}`}>
+              <ShieldCheck className="h-3.5 w-3.5" />
+              <span>Logging in as: {currentRoleConfig.label} ({currentRoleConfig.description})</span>
             </div>
           </div>
 
           {isSubmitted ? (
-            <div className="mt-6 text-center space-y-4 py-4">
+            <div className="mt-6 text-center space-y-4 py-4 animate-in fade-in zoom-in-95">
               <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600 border border-emerald-200">
                 <CheckCircle2 className="h-6 w-6" />
               </div>
               <div>
-                <h3 className="text-base font-bold text-slate-900">Console Session Ready</h3>
-                <p className="text-xs text-slate-500 mt-1">Authenticated as {email || 'Analyst'}</p>
+                <h3 className="text-base font-bold text-slate-900">Console Session Authenticated</h3>
+                <p className="text-xs text-slate-500 mt-1">
+                  Active role: <strong className="text-slate-800 font-semibold">{currentRoleConfig.label}</strong> ({currentRoleConfig.description})
+                </p>
               </div>
-              <Link
-                href="/"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-5 py-2.5 text-xs font-bold text-white shadow-md shadow-blue-500/25 hover:from-blue-700 hover:to-indigo-700 transition-all cursor-pointer"
+              <button
+                type="button"
+                onClick={() => router.push('/')}
+                className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-5 py-2.5 text-xs font-bold text-white shadow-md shadow-blue-500/25 hover:from-blue-700 hover:to-indigo-700 transition-all cursor-pointer"
               >
                 <span>Enter SOC Dashboard</span>
                 <ArrowRight className="h-4 w-4" />
-              </Link>
+              </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+              
+              {/* Email input */}
               <div className="space-y-1.5">
                 <label className="block text-xs font-bold text-slate-800">Email Address</label>
                 <div className="relative">
@@ -101,6 +134,7 @@ export default function LoginPage() {
                 </div>
               </div>
 
+              {/* Password input */}
               <div className="space-y-1.5">
                 <label className="block text-xs font-bold text-slate-800">Password</label>
                 <div className="relative">
@@ -126,12 +160,55 @@ export default function LoginPage() {
                 </div>
               </div>
 
+              {/* Role Choose Option */}
+              <div className="space-y-1.5 pt-1">
+                <label className="block text-xs font-bold text-slate-800">
+                  Select Authorization Role
+                </label>
+                <p className="text-[11px] text-slate-400">
+                  Choose the persona role for this console session.
+                </p>
+                <div className="grid grid-cols-3 gap-2 pt-1">
+                  {(['User', 'Analyst', 'Admin'] as const).map((r) => {
+                    const isSelected = role === r;
+                    const configs = {
+                      User: { icon: Shield, subtitle: 'Basic Analysis' },
+                      Analyst: { icon: ShieldAlert, subtitle: 'Full Investigation' },
+                      Admin: { icon: ShieldCheck, subtitle: 'Platform Admin' },
+                    }[r];
+                    const Icon = configs.icon;
+
+                    return (
+                      <button
+                        key={r}
+                        id={`login-role-${r.toLowerCase()}-btn`}
+                        type="button"
+                        onClick={() => setRole(r)}
+                        className={`flex flex-col items-start p-2.5 rounded-2xl border text-left transition-all cursor-pointer ${
+                          isSelected
+                            ? 'border-blue-400 bg-blue-50/70 text-blue-900 shadow-2xs ring-2 ring-blue-500/10'
+                            : 'border-slate-200 bg-slate-50/60 text-slate-600 hover:bg-slate-100 hover:border-slate-300'
+                        }`}
+                      >
+                        <div className="flex w-full items-center justify-between">
+                          <Icon className={`h-4 w-4 ${isSelected ? 'text-blue-600' : 'text-slate-400'}`} />
+                          {isSelected && <Check className="h-3 w-3 text-blue-600" />}
+                        </div>
+                        <span className="mt-1.5 text-xs font-bold text-slate-900">{r}</span>
+                        <span className="text-[10px] text-slate-400 font-medium leading-tight">{configs.subtitle}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
               <div className="pt-2">
                 <button
+                  id="login-submit-btn"
                   type="submit"
                   className="w-full flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-5 py-3 text-xs font-bold text-white shadow-md shadow-blue-500/25 hover:from-blue-700 hover:to-indigo-700 transition-all cursor-pointer"
                 >
-                  <span>Sign In to Console</span>
+                  <span>Sign In as {role}</span>
                   <ArrowRight className="h-4 w-4" />
                 </button>
               </div>

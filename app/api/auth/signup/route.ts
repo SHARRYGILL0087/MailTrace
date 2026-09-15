@@ -16,7 +16,7 @@ const otpStore = global.__MAILTRACE_OTP_STORE__;
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { username, email, password, resendOnly } = body;
+    const { username, email, password, role, resendOnly } = body;
 
     if (resendOnly) {
       if (!email || typeof email !== 'string') {
@@ -27,15 +27,14 @@ export async function POST(request: Request) {
       }
 
       const normalizedEmail = email.trim().toLowerCase();
-      // Generate standard mock OTP or 123456
       const generatedOtp = '123456';
       const existing = otpStore.get(normalizedEmail);
 
       otpStore.set(normalizedEmail, {
         otp: generatedOtp,
         username: existing?.username || normalizedEmail.split('@')[0],
-        role: 'User',
-        expiresAt: Date.now() + 10 * 60 * 1000, // 10 minutes
+        role: existing?.role || 'User',
+        expiresAt: Date.now() + 10 * 60 * 1000,
       });
 
       return NextResponse.json({
@@ -71,8 +70,9 @@ export async function POST(request: Request) {
     const normalizedEmail = email.trim().toLowerCase();
     const cleanUsername = username.trim();
 
-    // Default Role is strictly "User" (Basic Analysis)
-    const assignedRole = 'User';
+    // Role assignment (User, Analyst, or Admin)
+    const validRoles = ['User', 'Analyst', 'Admin'];
+    const assignedRole = validRoles.includes(role) ? role : 'User';
 
     // Store mock OTP
     const generatedOtp = '123456';
