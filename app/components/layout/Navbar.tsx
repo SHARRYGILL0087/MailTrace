@@ -17,6 +17,7 @@ import {
   CheckCircle2, 
   Clock, 
   LogOut,
+  LogIn,
   Sparkles,
   Shield,
   FileText,
@@ -331,6 +332,21 @@ export const Navbar: React.FC = () => {
             {/* Divider 2 */}
             <div className="h-5 w-px bg-slate-200 mx-1" />
 
+            {/* Login Button */}
+            <Link
+              id="navbar-login-btn"
+              href="/login"
+              title="Sign in to MailTrace AI Console"
+              className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-bold transition-all cursor-pointer ${
+                pathname && pathname.startsWith('/login')
+                  ? 'bg-blue-50 text-blue-700 border border-blue-200 shadow-xs'
+                  : 'border border-slate-200/90 bg-slate-50/80 text-slate-700 hover:bg-white hover:border-blue-300 hover:text-blue-600 hover:shadow-2xs'
+              }`}
+            >
+              <LogIn className="h-3.5 w-3.5 text-blue-600" />
+              <span>Login</span>
+            </Link>
+
             {/* 4. Avatar (IR) with Dropdown Chevron */}
             <div className="relative" ref={profileRef}>
               <button
@@ -407,7 +423,7 @@ export const Navbar: React.FC = () => {
                     type="button"
                     onClick={() => {
                       setIsProfileOpen(false);
-                      router.push('/');
+                      router.push('/login');
                     }}
                     className="flex w-full items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-semibold text-rose-600 hover:bg-rose-50 transition-colors cursor-pointer"
                   >
